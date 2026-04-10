@@ -29,13 +29,13 @@ export default function ConnectPage() {
           <div
             className="block md:hidden w-full h-full bg-cover bg-[position:50%_-36%]"
             style={{
-              backgroundImage: `url('/images/why ye (2).png')`,
+              backgroundImage: `url('/images/why%20ye%20(2).png')`,
             }}
           />
           <div
             className="hidden md:block w-full h-full bg-cover bg-bottom"
             style={{
-              backgroundImage: `url('/images/why ye (2).png')`,
+              backgroundImage: `url('/images/why%20ye%20(2).png')`,
             }}
           />
         </div>

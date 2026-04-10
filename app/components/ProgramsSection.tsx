@@ -15,7 +15,7 @@ const programs = [
     description:"Advanced, structured mechanics for upper primary students",
     ribbon: "/images/bg-9.png",
 	logo: "/images/Frame 291365 (1).png",
-    image: "/images/0E3A8931-1.png",
+    image: "/images/img-05.png",
     bgShape: "/images/Ellipse-637-7.png",
   },
   {
@@ -23,7 +23,7 @@ const programs = [
     description:"Hands-on building program introducing science and nature to preschool children",
     ribbon: "/images/bg-10.png",
 	logo: "/images/Frame 291365 (2).png",
-    image: "/images/_D6_9850-Poprawione-NR-1.png",
+    image: "/images/img-2.png",
     bgShape: "/images/Ellipse-637-2.png",
   },
   {
@@ -31,7 +31,7 @@ const programs = [
     description:"Coding through play for kindergarteners",
     ribbon: "/images/bg-11.png",
 	logo: "/images/Frame 291365 (3).png",
-    image: "/images/_DSC5114-2.png",
+    image: "/images/img-03.png",
     bgShape: "/images/Ellipse-637-3-1.png",
   },
   {
@@ -39,7 +39,7 @@ const programs = [
     description:"Foundational coding for primary students",
     ribbon: "/images/bg-12.png",
 	logo: "/images/Frame 291365 (4).png",
-    image: "/images/70274 2 (1).png",
+    image: "/images/img-06.png",
     bgShape: "/images/Ellipse-637-4-1.png",
   },
   {
@@ -47,7 +47,7 @@ const programs = [
     description:"Mechanical design and coding for upper primary students",
     ribbon: "/images/bg-13.png",
 	logo: "/images/Frame 291365 (5).png",
-    image: "/images/_DSC5869 2.png",
+    image: "/images/img-04.png",
     bgShape: "/images/Ellipse-637-8.png",
   },
   {
@@ -55,7 +55,7 @@ const programs = [
     description:"C/C++ coding and robotics for middle and high school students",
     ribbon: "/images/bg-14.png",
 	logo: "/images/Frame 291365 (6).png",
-    image: "/images/_D6_0695 1.png",
+    image: "/images/img_01.png",
     bgShape: "/images/Ellipse-637-5.png",
   },
 ];
