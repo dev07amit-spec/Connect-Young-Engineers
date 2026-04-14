@@ -36,9 +36,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col w-[300px] mx-auto mt-[10px] max-[324px]:w-[280px]">
-	  <h2 className="text-[28px] font-bold text-[#fff] leading-tight text-center mb-4  max-[324px]:text-[24px]">Interested in <span className="block">Classes Near You?</span></h2>
-	  <p className="text-[16px] font-normal text-[#fff] leading-tight text-center">Submit your
+    <div className="flex justify-center items-center flex-col w-[300px] mx-auto mt-[10px] max-[324px]:w-[280px] xl:w-[640px]">
+	  <h2 className="text-[28px] font-bold text-[#fff] leading-tight text-center mb-4  max-[324px]:text-[24px] md:text-[32px] xl:text-[52px] uppercase xl:mb-9">Interested in <span className="block">Classes Near You?</span></h2>
+	  <p className="text-[16px] font-normal text-[#fff] leading-tight text-center xl:text-[20px] xl:w-[380px]">Submit your
        details and we’ll contact you on WhatsApp.</p>
       <form
         onSubmit={handleSubmit}
@@ -89,7 +89,7 @@ export default function ContactForm() {
         />
 
         {/* Checkbox */}
-        <label className="flex items-center gap-2 text-[12px] text-white font-light w-[244px] cursor-pointer">
+        <label className="flex items-center gap-2 xl:gap-3 text-[12px] text-white font-light w-[244px] xl:w-[366px] cursor-pointer">
           <input type="checkbox" className="hidden peer" />
 
           {/* Custom checkbox */}
@@ -100,7 +100,7 @@ export default function ContactForm() {
   
           </div>
 
-          <span className="w-[90%]"> I have read and agree to <a href="#" className="underline">Privacy Policy</a> & <a href="#" className="underline">Terms of Service</a></span>
+          <span className="w-[90%] md:text-[16px]"> I have read and agree to <a href="#" className="underline">Privacy Policy</a> & <a href="#" className="underline">Terms of Service</a></span>
         </label>
       
       

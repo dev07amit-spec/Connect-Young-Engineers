@@ -46,7 +46,7 @@ export default function VideoHero() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden h-[760px]">
+    <div className="relative w-full overflow-hidden h-[760px] xl:h-[816px]">
 
       {/*  Background Video */}
       <video
@@ -65,17 +65,19 @@ export default function VideoHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#000F19CC] to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-start h-full px-4 text-white max-w-xl pt-8">
-        <h1 className="text-[28px] md:text-6xl font-bold  max-[380px]:text-[27px] max-[324px]:text-[22px]">
+      <div className="max-w-[1360px] m-auto xl:mt-[80px]">
+      <div className="relative z-10 flex flex-col justify-start h-full px-4 text-white pt-8 md:pt-4 max-w-[700px]">
+        <h1 className="text-[28px] md:text-[36px] xl:text-[48px] xl:leading-[1.2] font-bold  max-[380px]:text-[27px] max-[324px]:text-[22px]">
           Start Your Child’s Journey into Engineering 🚀
         </h1>
-        <p className="mt-4 text-[20px] max-[324px]:text-[16px]">
+        <p className="mt-4 xl:mt-6 text-[20px] max-[324px]:text-[16px] xl:text-[32px] xl:leading-[1.4]">
           Coding and Mechanics Discovered through a Memorable and Unforgettable Experience
         </p>
       </div>
+      </div>
 
       {/*  Controls (like your screenshot) */}
-      <div className="absolute bottom-20 left-5 z-20 flex items-center gap-0 w-[300px]  max-[324px]:w-[280px]">
+      <div className="absolute bottom-20 left-5 z-20 flex items-center gap-0 w-[300px]  max-[324px]:w-[280px] block md:hidden">
 
         {/* Play / Pause */}
         <button

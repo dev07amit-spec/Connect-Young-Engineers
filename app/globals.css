@@ -28,3 +28,32 @@ body {
 .active .img-main {
     height: 200px!important;
 }
+
+.desk-video.active .button-title {
+    background: #0097DC;
+    color: #fff;
+}
+
+@media (min-width: 767px) {
+.program-box {
+    height: 327px;
+}
+div#big-builders .img-main img,
+div#galileo-technic .img-main img{
+    height: 340px!important;
+}
+div#bricks-challenge .img-main {
+    right: -28px;
+    top: -11px;
+}
+div#bricks-challenge .img-main img {
+    height: 350px;
+}
+.dots {
+    width: 18px;
+    height: 18px;
+}
+.program-box button {
+    display: none!important;
+}
+}
