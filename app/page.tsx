@@ -95,7 +95,7 @@ export default function ConnectPage() {
         <div className="relative z-10 flex flex-col gap-4 md:gap-6 px-5 py-12 pt-[70px] pb-[80px]  max-w-[1360px] m-auto 
        md:flex-row xl:items-center md:pt-[210px] md:pb-[150px]">
            <div className="block md:hidden">
-            <p className="text-[16px] text-[#FFFFFF] uppercase text-center">oficially recognized by</p>
+            <p className="text-[16px] text-[#FFFFFF] uppercase text-center mb-4">oficially recognized by</p>
             <div className="flex items-center justigy-between gap-5 max-[324px]:gap-3">
                 <div className="flex items-center gap-2">
                   <Image
