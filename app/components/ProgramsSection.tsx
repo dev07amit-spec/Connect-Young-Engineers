@@ -103,7 +103,7 @@ export default function ProgramsSection() {
         onClick={() =>
         setActiveIndex(prev => (prev === index ? null : index))
         }
-        className={`program-box relative cursor-pointer flex justify-between w-full rounded-[16px] pl-[10px]  xl:pl-5 shadow-[0_4px_40px_#003B631A] overflow-hidden mb-4 xl:mb-8 transition-all duration-300 ${
+        className={`program-box relative cursor-pointer flex justify-between w-full rounded-[16px] pl-[10px]  xl:pl-5 shadow-[0_4px_40px_#003B631A] overflow-visible xl:overflow-visible mb-4 xl:mb-8 transition-all duration-300 ${
         activeIndex === index ? "h-[190px]" : "h-[144px]" 
         }
         ${activeIndex === index ? "active" : ""}`}
@@ -153,18 +153,19 @@ export default function ProgramsSection() {
 		
 
           {/* Content */}
-          <div className="flex-1 px-1 py-1 mt-4 pl-2 xl:pl-5 xl:mt-8 max-[380px]:mt-2 max-[324px]:w-[135px] md:gap-6 md:mt-8 xl:w-[600px]">
-            <h2 className="text-[20px] xl:text-[52px] font-bold text-[#58585A] mb-2 leading-[22px] xl:leading-[62px] xl:tracking-[2px] max-[380px]:text-[18px]  max-[380px]:leading-[20px]  max-[380px]:mb-7">
+          <div className="flex-1 px-1 py-1 mt-4 pl-2 xl:pl-5 xl:mt-8 max-[380px]:mt-2 max-[324px]:w-[135px] md:gap-6 md:mt-8 xl:w-[600px] relative z-10">
+            <h2 className="text-[19px] md:text-[50px] xl:text-[52px] font-bold text-[#58585A] mb-2 leading-[22px] md:leading-[60px] xl:leading-[62px] xl:tracking-[2px] max-[380px]:text-[18px]  max-[380px]:leading-[20px]  max-[380px]:mb-1">
               {item.title}
             </h2>
-            <p className="text-[#000] text-[13px]  max-[380px]:text-[12px] xl:text-[28px] xl:mt-[26px]">
+            <p className="text-[#000] text-[12px] w-[160px] md:w-full max-[380px]:text-[12px] md:text-[24px] xl:text-[28px] xl:mt-[26px]">
               {item.description}
             </p>
               
           </div>
 		  </div>
 		  {activeIndex === index && (
-                <button className="mt-0 flex justify-center w-[95%] bg-blue-500 text-white text-sm px-4 py-2 rounded-full flex items-center gap-2 shadow-md relative z-10">
+                <button className="mt-0 flex justify-center w-[95%] bg-blue-500 text-white text-sm px-4 py-2 rounded-full flex items-center gap-2 shadow-md relative z-10
+                md:hidden">
                   ▶ Watch video
                 </button>
               )}
@@ -197,12 +198,13 @@ export default function ProgramsSection() {
           {/* mobile Image */}
           <div className="relative w-[118px]  h-[160px] z-0 max-[324px]:w-[100px] block md:hidden">
             <div
-            className="relative w-[130px] h-[160px] flex items-center justify-center overflow-hidden img-bg"
+            className="relative w-[130px] h-[144px] flex items-center justify-center overflow-hidden img-bg"
 			      style={{
             backgroundImage: `url(${item.bgShape})`,
-            backgroundSize: "contain",
-            backgroundPosition: "center bottom", // ⬅️ IMPORTANT
-            top: "-4px",
+            backgroundSize: "cover",
+            backgroundPosition: "center", // ⬅️ IMPORTANT
+            top: "0px",
+            right:"13px",
             backgroundRepeat: "no-repeat",
           }}
             ></div>

@@ -25,7 +25,7 @@ export default function ConnectPage() {
        
       <section className="relative w-full flex flex-col h-[200px] xl:h-[280px] items-center justify-center">
         {/* Background */}
-        <div className="absolute inset-0 z-10 top-[-110px] xl:top-[-290px]">
+        <div className="absolute inset-0 z-10 top-[-110px] md:top-[-270px] xl:top-[-290px]">
           <div
             className="block md:hidden w-full h-full bg-cover bg-[position:50%_-36%]"
             style={{
@@ -92,7 +92,8 @@ export default function ConnectPage() {
           />
         </div>
         
-        <div className="relative z-10 flex flex-col gap-4 md:gap-6 px-5 py-12 pt-[70px] pb-[80px]  max-w-[1360px] m-auto xl:flex-row xl:items-center md:pt-[190px]">
+        <div className="relative z-10 flex flex-col gap-4 md:gap-6 px-5 py-12 pt-[70px] pb-[80px]  max-w-[1360px] m-auto 
+       md:flex-row xl:items-center md:pt-[210px] md:pb-[150px]">
            <div className="block md:hidden">
             <p className="text-[16px] text-[#FFFFFF] uppercase text-center">oficially recognized by</p>
             <div className="flex items-center justigy-between gap-5 max-[324px]:gap-3">
@@ -125,7 +126,7 @@ export default function ConnectPage() {
                    alt="logo"
                    width={690}
                    height={640}
-                   className="object-contain w-[690px] h-[640px]"
+                   className="object-contain w-[500px] h-[500px] xl:w-[690px] xl:h-[640px] "
                   />
             </div>
         </div>
@@ -134,7 +135,7 @@ export default function ConnectPage() {
      {/*====================programs============================*/}
      <section className="relative w-full flex flex-col items-center min-h-[560px]">
         {/* Background */}
-        <div className="absolute inset-0 z-10 top-[-90px] xl:top-[-40%]">
+        <div className="absolute inset-0 z-10 top-[-90px] md:top-[-140px] xl:top-[-175px] min-[1800px]:!top-[-210px]">
           <div
             className="block md:hidden w-full h-full bg-cover bg-top"
             style={{
@@ -143,15 +144,15 @@ export default function ConnectPage() {
             }}
           />
           <div
-            className="hidden md:block w-full h-full bg-cover bg-top"
+            className="hidden md:block w-full h-full bg-cover bg-top !h-[450px]"
             style={{
-              backgroundImage: `url('/images/why-ye-desktop.png')`,
+              backgroundImage: `url('/images/program-bg.png')`,
               backgroundRepeat: "no-repeat",
             }}
           />
         </div>
-        <div className="relative z-10 flex flex-col md:gap-6 px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full">
-               <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] xl:text-[52px] xl:w-[700px] uppercase">Young Engineers Programs:</h2>
+        <div className="relative z-10 flex flex-col md:gap-6 px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full overflow-hidden">
+               <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px] md:w-[60%] xl:w-[700px] uppercase">Young Engineers Programs:</h2>
                <ProgramsSection />
         </div>
       </section>
@@ -198,10 +199,10 @@ export default function ConnectPage() {
           alt="logo"
           width={274}
           height={56}
-          className="object-contain w-[274px] h-[56px] mb-11 xl:w-[430px] xl:h-[130px]"
+          className="object-contain w-[274px] h-[56px] mb-10 xl:w-[430px] xl:h-[130px]"
           />
         </div>
-        <div className="relative flex items-center justify-center w-[274px] xl:w-[730px] xl:gap-3">
+        <div className="relative flex items-center gap-2 justify-center w-[274px] xl:w-[730px] xl:gap-3">
           <Image
            src="/images/Frame 1984078214.png"
            alt="logo"
@@ -254,7 +255,7 @@ export default function ConnectPage() {
         <a href="#" className="underline hover:opacity-80 text-[14px] text-white xl:text-[28px]">
           Privacy Policy
         </a>
-        <span className="text-white">|</span>
+        <span className="text-white xl:text-[28px]">|</span>
         <a href="#" className="underline hover:opacity-80 text-[14px] text-white xl:text-[28px]">
           Terms of Service
         </a>

@@ -36,7 +36,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col w-[300px] mx-auto mt-[10px] max-[324px]:w-[280px] xl:w-[640px]">
+    <div className="flex justify-center items-center flex-col w-[300px] mx-auto mt-[10px] max-[324px]:w-[280px] md:w-[400px] xl:w-[640px]">
 	  <h2 className="text-[28px] font-bold text-[#fff] leading-tight text-center mb-4  max-[324px]:text-[24px] md:text-[32px] xl:text-[52px] uppercase xl:mb-9">Interested in <span className="block">Classes Near You?</span></h2>
 	  <p className="text-[16px] font-normal text-[#fff] leading-tight text-center xl:text-[20px] xl:w-[380px]">Submit your
        details and we’ll contact you on WhatsApp.</p>
@@ -89,7 +89,7 @@ export default function ContactForm() {
         />
 
         {/* Checkbox */}
-        <label className="flex items-center gap-2 xl:gap-3 text-[12px] text-white font-light w-[244px] xl:w-[366px] cursor-pointer">
+        <label className="flex items-center gap-2 xl:gap-3 text-[12px] text-white font-light w-[244px] md:w-[327px]  xl:w-[366px] cursor-pointer">
           <input type="checkbox" className="hidden peer" />
 
           {/* Custom checkbox */}
@@ -109,7 +109,7 @@ export default function ContactForm() {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full flex items-center justify-center h-[50px] rounded-[50px] bg-[#F2F2F2] text-[#828282] gap-[10px] text-[16px] font-light"
+          className="w-full flex items-center justify-center h-[50px] rounded-[50px] bg-[#F2F2F2] text-[#828282] gap-[10px] text-[16px] font-light cursor-pointer"
         >
            <Image
                    src="/images/Vector.png"
