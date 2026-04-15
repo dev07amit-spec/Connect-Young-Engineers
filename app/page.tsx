@@ -152,7 +152,7 @@ export default function ConnectPage() {
           />
         </div>
         <div className="relative z-10 flex flex-col md:gap-6 px-2 xl:px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full overflow-hidden">
-               <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px] md:w-[60%] xl:w-[700px] uppercase">Young Engineers Programs:</h2>
+               <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px] md:w-[60%] xl:w-[700px] uppercase pl-2 xl:pl-0">Young Engineers Programs:</h2>
                <ProgramsSection />
         </div>
       </section>
