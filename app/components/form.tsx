@@ -37,8 +37,8 @@ export default function ContactForm() {
 
   return (
     <div className="flex justify-center items-center flex-col w-[300px] mx-auto mt-[10px] max-[324px]:w-[280px] md:w-[400px] xl:w-[640px]">
-	  <h2 className="text-[28px] font-bold text-[#fff] leading-tight text-center mb-4  max-[324px]:text-[24px] md:text-[32px] xl:text-[52px] uppercase xl:mb-9">Interested in <span className="block">Classes Near You?</span></h2>
-	  <p className="text-[16px] font-normal text-[#fff] leading-tight text-center xl:text-[20px] xl:w-[380px]">Submit your
+	  <h2 className="text-[28px] font-bold text-[#fff] leading-normal xl:leading-tight text-center mb-4  max-[324px]:text-[24px] md:text-[32px] xl:text-[52px] uppercase xl:mb-9">Interested in <span className="block">Classes Near You?</span></h2>
+	  <p className="text-[16px] font-normal text-[#fff] leading-normal xl:leading-tight text-center xl:text-[20px] xl:w-[380px]">Submit your
        details and we’ll contact you on WhatsApp.</p>
       <form
         onSubmit={handleSubmit}

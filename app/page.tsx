@@ -68,7 +68,7 @@ export default function ConnectPage() {
 
       {/* mobile */}
        <div className="relative z-10 flex flex-col gap-4 md:gap-6 px-5 block md:hidden">
-            <h2 className="text-[28px] text-[#003B63] max-[324px]:text-[24px]">A global STEM education program operating in <span className="text-[#0097DC] font-bold block">100+ countries.</span></h2>
+            <h2 className="text-[28px] text-[#003B63] max-[365px]:text-[26px] max-[324px]:text-[24px]">A global STEM education program operating in <span className="text-[#0097DC] font-bold block">100+ countries.</span></h2>
        </div>
     </section>
 
@@ -105,7 +105,7 @@ export default function ConnectPage() {
                    height={50}
                    className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]"
                   />
-                  <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[324px]:text-[10px]">harvard <span className="block text-[8px] font-light tracking-[1px]">school of education</span></p>
+                  <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[365px]:text-[11px] max-[324px]:text-[10px]">harvard <span className="block text-[8px] font-light tracking-[1px]">school of education</span></p>
                 </div>
                 <div className="flex items-center gap-2">
                    <Image
@@ -115,7 +115,7 @@ export default function ConnectPage() {
                    height={50}
                    className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]"
                   />
-                   <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[324px]:text-[10px]">european union <span className="block text-[8px] font-light tracking-[1px]">comission</span></p>
+                   <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[365px]:text-[11px] max-[324px]:text-[10px]">european union <span className="block text-[8px] font-light tracking-[1px]">comission</span></p>
                 </div>
             </div>
             </div>
@@ -151,7 +151,7 @@ export default function ConnectPage() {
             }}
           />
         </div>
-        <div className="relative z-10 flex flex-col md:gap-6 px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full overflow-hidden">
+        <div className="relative z-10 flex flex-col md:gap-6 px-2 xl:px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full overflow-hidden">
                <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px] md:w-[60%] xl:w-[700px] uppercase">Young Engineers Programs:</h2>
                <ProgramsSection />
         </div>
