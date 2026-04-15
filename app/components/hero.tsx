@@ -56,9 +56,22 @@ export default function VideoHero() {
         loop
         playsInline
         onTimeUpdate={handleTimeUpdate}
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
       >
-        <source src="/videos/connect-new-mobile-1.mp4" type="video/mp4" />
+        <source src="/videos/no-audio-canvas-desktop.mp4" type="video/mp4" />
+      </video>
+      
+      {/*  Background Video for mobile */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        onTimeUpdate={handleTimeUpdate}
+        className="absolute top-0 left-0 w-full h-full object-cover block md:hidden"
+      >
+        <source src="/videos/connect-new-mobile.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
@@ -77,23 +90,24 @@ export default function VideoHero() {
       </div>
 
       {/*  Controls (like your screenshot) */}
-      <div className="absolute bottom-20 left-5 z-20 flex items-center gap-0 w-[300px]  max-[324px]:w-[280px] block md:hidden">
+      <div className="absolute bottom-20 left-5 z-20 flex items-center gap-3 w-[300px]  max-[324px]:w-[280px] block md:hidden">
 
         {/* Play / Pause */}
-        <button
-          onClick={togglePlay}
-          className="text-white px-3 py-2 rounded-full text-[30px]"
-        >
-          {isPlaying ? "❚❚" : "▶"}
-        </button>
+        <button onClick={togglePlay}>
+         <img
+           src={isPlaying ? "/images/Layer_1.png" : "/images/Layer_2.png"}
+           alt="play-pause"
+           className="w-[22px] h-[22px] object-contain"
+         />
+       </button>
 
         {/* Progress Bar */}
         <div
           onClick={handleSeek}
-          className="flex-1 h-[4px] bg-white/30 rounded cursor-pointer overflow-hidden"
+          className="flex-1 h-[2px] bg-[#58585a66]  rounded cursor-pointer overflow-hidden"
         >
           <div
-            className="h-full bg-white"
+            className="h-full bg-white/40 "
             style={{ width: `${progress}%` }}
           />
         </div>

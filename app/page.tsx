@@ -10,7 +10,7 @@ export default function ConnectPage() {
   return (
     <main>
       {/*==============header================*/}
-      <div className="flex justify-center items-center py-2">
+      <div className="flex justify-center items-center py-2 bg-white">
         <Image
           src="/images/logo_horizontal.png"
           alt="logo"
@@ -73,7 +73,7 @@ export default function ConnectPage() {
     </section>
 
     {/*====================Form============================*/}
-     <section className="relative w-full flex flex-col items-center justify-center min-h-[700px]">
+     <section className="relative w-full flex flex-col items-center justify-center min-h-[700px] bg-white">
         {/* Background */}
         <div className="absolute inset-0 z-10 top-0">
           <div
@@ -103,7 +103,7 @@ export default function ConnectPage() {
                    alt="logo"
                    width={50}
                    height={50}
-                   className="object-contain w-[50px] h-[50px] max-[390px]:w-[35px] max-[324px]:w-[24px]"
+                   className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]"
                   />
                   <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[324px]:text-[10px]">harvard <span className="block text-[8px] font-light tracking-[1px]">school of education</span></p>
                 </div>
@@ -113,7 +113,7 @@ export default function ConnectPage() {
                    alt="logo"
                    width={50}
                    height={50}
-                   className="object-contain w-[50px] h-[50px] max-[390px]:w-[35px] max-[324px]:w-[24px]"
+                   className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]"
                   />
                    <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[324px]:text-[10px]">european union <span className="block text-[8px] font-light tracking-[1px]">comission</span></p>
                 </div>
@@ -158,7 +158,7 @@ export default function ConnectPage() {
       </section>
 
 
-      <section className="relative w-full flex flex-col items-center xl:min-h-[460px] xl:pt-[160px] xl:pb-[70px]">
+      <section className="relative w-full flex flex-col items-center xl:min-h-[460px] xl:pt-[160px] xl:pb-[70px] bg-white">
         {/* Background */}
         <div className="absolute inset-0 z-10 top-[-90px] xl:top-[-60px]">
           <div

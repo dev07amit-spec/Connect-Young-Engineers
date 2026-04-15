@@ -164,9 +164,16 @@ export default function ProgramsSection() {
           </div>
 		  </div>
 		  {activeIndex === index && (
-                <button className="mt-0 flex justify-center w-[95%] bg-blue-500 text-white text-sm px-4 py-2 rounded-full flex items-center gap-2 shadow-md relative z-10
+                <button className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-md relative z-10
                 md:hidden">
-                  ▶ Watch video
+                  <Image
+                      src="/images/play_circle.png"
+                      alt="logo"
+                      width={17}
+                      height={17}
+                      className="object-contain w-[17px] h-[17px] "
+                   />
+                 Watch video
                 </button>
               )}
           </div>
