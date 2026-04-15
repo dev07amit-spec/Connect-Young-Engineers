@@ -89,7 +89,7 @@ export default function VideoHero() {
       </div>
       </div>
 
-      {/*  Controls (like your screenshot) */}
+      {/*  Controls  */}
       <div className="absolute bottom-20 left-5 z-20 flex items-center gap-3 w-[300px]  max-[324px]:w-[280px] block md:hidden">
 
         {/* Play / Pause */}
