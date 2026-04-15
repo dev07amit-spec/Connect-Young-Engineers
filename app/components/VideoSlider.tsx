@@ -188,9 +188,9 @@ export default function VideoSlider() {
             <button
               key={index}
               onClick={() => setActive(index + 1)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 dots cursor-pointer ${
+              className={`w-2.5 h-2.5 rounded-full  dots cursor-pointer ${
                 current === index
-                  ? 'bg-[linear-gradient(45deg,#013A5E,#016CAC)] scale-125'
+                  ? 'bg-[linear-gradient(45deg,#013A5E,#016CAC)] scale-100'
                   : 'bg-gray-300'
               }`}
             />
