@@ -154,7 +154,7 @@ export default function ProgramsSection() {
 
           {/* Content */}
           <div className="flex-1 px-1 py-1 mt-4 pl-2 xl:pl-5 xl:mt-8 max-[380px]:mt-2 max-[324px]:w-[135px] md:gap-6 md:mt-8 xl:w-[600px] relative z-10">
-            <h2 className="text-[19px] md:text-[50px] xl:text-[52px] font-bold text-[#58585A] mb-2 leading-[22px] md:leading-[60px] xl:leading-[62px] xl:tracking-[2px] max-[380px]:text-[18px]  max-[380px]:leading-[20px]  max-[380px]:mb-1">
+            <h2 className="text-[19px] md:text-[40px] lg:text-[50px] xl:text-[52px] font-bold text-[#58585A] mb-2 leading-[22px]  md:leading-[50px] lg:leading-[60px] xl:leading-[62px] xl:tracking-[2px] max-[380px]:text-[18px]  max-[380px]:leading-[20px]  max-[380px]:mb-1">
               {item.title}
             </h2>
             <p className="text-[#000] text-[12px] w-[160px] md:w-full max-[380px]:text-[12px] md:text-[24px] xl:text-[28px] xl:mt-[26px]">
@@ -180,7 +180,7 @@ export default function ProgramsSection() {
 		   
           {/* Right Image */}
           {/* desktop Image */}
-           <div className="relative w-[375px] h-[333px] z-0 hidden md:block">
+           <div className="relative w-[310px] h-[333px] lg:w-[375px] lg:h-[333px]  z-0 hidden md:block">
             <div
             className="relative w-[375px] h-[333px] flex items-center justify-center overflow-hidden img-bg"
 			     style={{

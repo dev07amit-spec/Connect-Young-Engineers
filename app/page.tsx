@@ -44,8 +44,8 @@ export default function ConnectPage() {
        
        {/* Desktop */}
         <div className="relative z-10 flex  items-center gap-4 md:gap-6 px-5 hidden md:flex max-w-[1360px] m-auto">
-            <h2 className="text-[40px] text-[#003B63]">A global STEM education program operating in <span className="text-[#0097DC] font-bold ">100+ countries.</span></h2>
-			      <div className="ml-4 min-w-[580px] text-center">
+            <h2 className="text-[27px] lg:text-[40px] text-[#003B63]">A global STEM education program operating in <span className="text-[#0097DC] font-bold ">100+ countries.</span></h2>
+			      <div className="ml-4 min-w-[400px] lg:min-w-[580px] text-center">
 			          <h3 className="text-[27px] text-[#0069A7] uppercase mb-6">oficially recognized by</h3>
 				        <div className="flex items-center justify-center gap-10">
 				          <Image
@@ -152,7 +152,7 @@ export default function ConnectPage() {
           />
         </div>
         <div className="relative z-10 flex flex-col md:gap-6 px-2 xl:px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full overflow-hidden">
-               <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px] md:w-[60%] xl:w-[700px] uppercase pl-2 xl:pl-0">Young Engineers Programs:</h2>
+               <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px]  md:w-[70%] lg:w-[60%] xl:w-[700px] uppercase pl-2 xl:pl-0">Young Engineers Programs:</h2>
                <ProgramsSection />
         </div>
       </section>

@@ -53,6 +53,15 @@ body {
 main {
     overflow-x: hidden !important;
 }
+
+@media (max-width: 1024px) and (min-width: 767px) {
+.img-bg {
+    background-position: left !important;
+    background-size: cover !important;
+    width: 300px !important;
+}
+}
+
 @media (min-width: 767px) {
 .program-box {
     height: 327px;
