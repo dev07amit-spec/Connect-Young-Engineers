@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 
 const videos = [
-  { id: 1, title: 'Bricks Challenge', thumbnail: '/images/img-01.png', videoUrl: '/videos/connect-new-mobile-1.mp4' },
-  { id: 2, title: 'Galileo Technic', thumbnail: '/images/img-02.jpg', videoUrl: '/videos/connect-new-mobile-1.mp4' },
-  { id: 3, title: 'Big Builders', thumbnail: '/images/img-033.png', videoUrl: '/videos/connect-new-mobile-1.mp4' },
-  { id: 4, title: 'Algo Play', thumbnail: '/images/img-01.png', videoUrl: '/videos/connect-new-mobile-1.mp4' },
-  { id: 5, title: 'Robo Toys', thumbnail: '/images/img-02.jpg', videoUrl: '/videos/connect-new-mobile-1.mp4' },
+  { id: 1, title: 'Bricks Challenge', thumbnail: '/images/img-01.png', videoUrl: '/videos/connect-new-mobile.mp4' },
+  { id: 2, title: 'Galileo Technic', thumbnail: '/images/img-02.jpg', videoUrl: '/videos/connect-new-mobile.mp4' },
+  { id: 3, title: 'Big Builders', thumbnail: '/images/img-033.png', videoUrl: '/videos/connect-new-mobile.mp4' },
+  { id: 4, title: 'Algo Play', thumbnail: '/images/img-01.png', videoUrl: '/videos/connect-new-mobile.mp4' },
+  { id: 5, title: 'Robo Toys', thumbnail: '/images/img-02.jpg', videoUrl: '/videos/connect-new-mobile.mp4' },
 ];
 
 export default function VideoSlider() {
