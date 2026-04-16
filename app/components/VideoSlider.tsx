@@ -16,7 +16,7 @@ const videos = [
     id: 2, 
     title: 'Galileo Technic', 
     thumbnail: '/images/img-02.jpg', 
-    videoUrl: '/videos/galileo-technic-desktop.mp4',
+    videoUrl: '/videos/galileo-technic.mp4',
     videoUrlMobile: '/videos/galileo-technic-mobile.mp4'
   },
 
@@ -48,7 +48,7 @@ const videos = [
     id: 6, 
     title: 'Robo Toys', 
     thumbnail: '/images/img-02.jpg', 
-    videoUrl: '/videos/robotoys-desktop.mp4',
+    videoUrl: '/videos/robotoys.mp4',
     videoUrlMobile: '/videos/robotoys-mobile.mp4'
   },
 ];
