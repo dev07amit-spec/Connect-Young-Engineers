@@ -100,7 +100,7 @@ export default function ContactForm() {
   
           </div>
 
-          <span className="w-[90%] md:text-[16px]"> I have read and agree to <a href="#" className="underline">Privacy Policy</a> & <a href="#" className="underline">Terms of Service</a></span>
+          <span className="w-[90%] md:text-[16px]"> I have read and agree to <a href="https://translationconnect.youngengineers.org/privacy-policy/" target="_blank"  className="underline">Privacy Policy</a> & <a href="https://translationconnect.youngengineers.org/terms-of-service/" target="_blank"  className="underline">Terms of Service</a></span>
         </label>
       
       

@@ -4,11 +4,53 @@ import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 
 const videos = [
-  { id: 1, title: 'Bricks Challenge', thumbnail: '/images/img-01.png', videoUrl: '/videos/connect-new-mobile.mp4' },
-  { id: 2, title: 'Galileo Technic', thumbnail: '/images/img-02.jpg', videoUrl: '/videos/connect-new-mobile.mp4' },
-  { id: 3, title: 'Big Builders', thumbnail: '/images/img-033.png', videoUrl: '/videos/connect-new-mobile.mp4' },
-  { id: 4, title: 'Algo Play', thumbnail: '/images/img-01.png', videoUrl: '/videos/connect-new-mobile.mp4' },
-  { id: 5, title: 'Robo Toys', thumbnail: '/images/img-02.jpg', videoUrl: '/videos/connect-new-mobile.mp4' },
+  { 
+    id: 1, 
+    title: 'Bricks Challenge', 
+    thumbnail: '/images/img-01.png',
+    videoUrl: '/videos/young-engineers-desktop.mp4', 
+    videoUrlMobile: '/videos/young-engineers-mobile.mp4'
+  },
+
+  { 
+    id: 2, 
+    title: 'Galileo Technic', 
+    thumbnail: '/images/img-02.jpg', 
+    videoUrl: '/videos/galileo-technic-desktop.mp4',
+    videoUrlMobile: '/videos/galileo-technic-mobile.mp4'
+  },
+
+  { 
+    id: 3, 
+    title: 'Big Builders', 
+    thumbnail: '/images/img-033.png', 
+    videoUrl: '/videos/big-builders-desktop.mp4',
+    videoUrlMobile: '/videos/big-builders-mobile.mp4' 
+  },
+
+  { 
+    id: 4, 
+    title: 'Smartivo', 
+    thumbnail: '/images/img02.png', 
+    videoUrl: '/videos/SV-tangible-screen.mp4',
+    videoUrlMobile: '/videos/SV-tangible-screen.mp4'
+  },
+  
+  { 
+    id: 5, 
+    title: 'Algo Play', 
+    thumbnail: '/images/img-01.png', 
+    videoUrl: '/videos/algoPlay-desktop.mp4',
+    videoUrlMobile: '/videos/algoPlay-mobile.mp4'
+  },
+
+  { 
+    id: 6, 
+    title: 'Robo Toys', 
+    thumbnail: '/images/img-02.jpg', 
+    videoUrl: '/videos/robotoys-desktop.mp4',
+    videoUrlMobile: '/videos/robotoys-mobile.mp4'
+  },
 ];
 
 export default function VideoSlider() {
@@ -141,14 +183,14 @@ export default function VideoSlider() {
 
                   {isPlaying ? (
                     <video
-                      src={video.videoUrl}
+                      src={isDesktop ? video.videoUrl : video.videoUrlMobile}
                       autoPlay
                       muted
                       loop
                       playsInline
-                      className="rounded-2xl w-full h-[320px] md:h-[350px] object-cover xl:rounded-[52px]"
+                      className="rounded-2xl w-full h-[320px] md:h-[350px] object-cover md:object-cover xl:rounded-[52px]"
                     />
-                  ) : (
+                   ) : (
                     <>
                     <div className='overlay'></div>
                       <img

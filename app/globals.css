@@ -140,7 +140,7 @@ div#algo-c .img-main img{
 }
 .active-slide video {
     height: 312px;
-    object-fit: contain;
+    object-fit: cover!important;
 }
 .overlay {
     border-radius: 16px!important;
