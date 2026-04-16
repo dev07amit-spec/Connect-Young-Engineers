@@ -133,7 +133,7 @@ export default function ConnectPage() {
     </section>
     
      {/*====================programs============================*/}
-     <section className="relative w-full flex flex-col items-center min-h-[560px]">
+     <section className="relative w-full flex flex-col items-center min-h-[560px] bg-white">
         {/* Background */}
         <div className="absolute inset-0 z-10 top-[-90px] md:top-[-140px] xl:top-[-175px] min-[1800px]:!top-[-210px]">
           <div
@@ -158,9 +158,9 @@ export default function ConnectPage() {
       </section>
 
 
-      <section className="relative w-full flex flex-col items-center xl:min-h-[460px] xl:pt-[160px] xl:pb-[70px] bg-white">
+      <section className="relative w-full flex flex-col items-center xl:min-h-[460px] xl:pt-[160px] xl:pb-[70px] bg-white pt-4 pb-14" id="videos-slider">
         {/* Background */}
-        <div className="absolute inset-0 z-10 top-[-90px] xl:top-[-60px]">
+        <div className="absolute inset-0 z-10 top-[-10px] max-[767px]:bg-[#fff] xl:top-[-60px] ">
           <div
             className="hidden md:block w-full h-full bg-cover bg-top"
             style={{
@@ -174,7 +174,7 @@ export default function ConnectPage() {
 
 
       {/*====================Footer=================== */}
-      <section className="relative w-full flex flex-col min-h:h-[200px] items-center justify-center py-10 mt-10">
+      <section className="relative w-full flex flex-col min-h:h-[200px] items-center justify-center py-10 bg-white mt-[-1px]">
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <div

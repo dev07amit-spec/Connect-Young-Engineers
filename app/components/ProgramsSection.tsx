@@ -164,8 +164,11 @@ export default function ProgramsSection() {
           </div>
 		  </div>
 		  {activeIndex === index && (
-                <button className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-md relative z-10
-                md:hidden">
+                <button className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full flex items-center cursor-pointer gap-2 shadow-md relative z-10
+                md:hidden"
+                onClick={()=>{
+                document.getElementById("videos-slider")?.scrollIntoView({behavior:"smooth"});}}
+                >
                   <Image
                       src="/images/play_circle.png"
                       alt="logo"
