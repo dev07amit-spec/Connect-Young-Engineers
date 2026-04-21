@@ -53,7 +53,7 @@ const videos = [
   },
 ];
 
-export default function VideoSlider() {
+export default function VideoSlider({ selectedVideoId }: { selectedVideoId: string | null }) {
   const [active, setActive] = useState(1);
   const [playingIndex, setPlayingIndex] = useState(1);
   const [slideWidth, setSlideWidth] = useState(180);
@@ -143,6 +143,21 @@ export default function VideoSlider() {
     return active - 1;
   };
 
+  useEffect(() => {
+  if (!selectedVideoId) return;
+
+  const index = videos.findIndex(
+    (v) => `video-${v.id}` === selectedVideoId
+  );
+
+  if (index !== -1) {
+    const newIndex = index + 1;
+
+    setActive(newIndex);
+    setPlayingIndex(newIndex);
+  }
+}, [selectedVideoId]);
+
   return (
     <div className="w-full max-w-[1360px] mx-auto relative z-10">
 
@@ -156,10 +171,9 @@ export default function VideoSlider() {
         <div
           className="flex gap-5 items-center"
           style={{
-            transform: isDesktop
+           transform: isDesktop
               ? `translateX(-${active * (slideWidth + 20)}px)`
-              : `translateX(calc(50% - ${active * slideWidth}px - ${slideWidth / 2}px))`,
-            transition: isTransitioning ? 'transform 0.4s ease' : 'none',
+              : `translateX(calc(50% - ${(active * (slideWidth + 20)) + (slideWidth / 2)}px))`,
           }}
         >
           {extendedVideos.map((video, index) => {
@@ -183,13 +197,14 @@ export default function VideoSlider() {
 
                   {isPlaying ? (
                     <video
-                      src={isDesktop ? video.videoUrl : video.videoUrlMobile}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="rounded-2xl w-full h-[320px] md:h-[350px] object-cover md:object-cover xl:rounded-[52px]"
-                    />
+                     id={`video-${video.id}`} // ✅ unique id
+                     src={isDesktop ? video.videoUrl : video.videoUrlMobile}
+                     autoPlay
+                     muted
+                     loop
+                     playsInline
+                     className="rounded-2xl w-full h-[320px] md:h-[350px] object-cover xl:rounded-[52px]"
+                   />
                    ) : (
                     <>
                     <div className='overlay'></div>

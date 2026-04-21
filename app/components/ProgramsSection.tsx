@@ -12,7 +12,8 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (7).png", 
     ribbonDesktop: "/images/bg-15.png",
     bgShapeDesktop: "/images/ellipse-desktop-green.png",
-    imageDesktop: "/images/IMG_1989-1.png"
+    imageDesktop: "/images/IMG_1989-1.png",
+    videoId: "video-1" ,
   },
   {
     title: "GALILEO TECHNIC",
@@ -24,7 +25,8 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (8).png", 
     ribbonDesktop: "/images/bg-16.png",
     bgShapeDesktop: "/images/ellipse-desktop-red.png",
-    imageDesktop: "/images/IMG_1989-2.png"
+    imageDesktop: "/images/IMG_1989-2.png",
+    videoId: "video-2" ,
   },
   {
     title: "BIG BUILDERS",
@@ -36,7 +38,8 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (9).png", 
     ribbonDesktop: "/images/bg-17.png",
     bgShapeDesktop: "/images/ellipse-desktop-yellow.png",
-    imageDesktop: "/images/IMG_1989-3.png"
+    imageDesktop: "/images/IMG_1989-3.png",
+    videoId: "video-3" ,
   },
   {
     title: "SMARTIVO",
@@ -48,7 +51,8 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (10).png", 
     ribbonDesktop: "/images/bg-18.png",
     bgShapeDesktop: "/images/ellipse-desktop-blue.png",
-    imageDesktop: "/images/IMG_1989-4.png"
+    imageDesktop: "/images/IMG_1989-4.png",
+    videoId: "video-4",
   },
   {
     title: "ALGO PLAY",
@@ -60,7 +64,8 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (11).png", 
     ribbonDesktop: "/images/bg-19.png",
     bgShapeDesktop: "/images/ellipse-desktop-purple.png",
-    imageDesktop: "/images/IMG_1989-5.png"
+    imageDesktop: "/images/IMG_1989-5.png",
+    videoId: "video-5",
   },
   {
     title: "ROBO TOYS",
@@ -72,7 +77,8 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (12).png", 
     ribbonDesktop: "/images/bg-20.png",
     bgShapeDesktop: "/images/ellipse-desktop-teal.png",
-    imageDesktop: "/images/IMG_1989-6.png"
+    imageDesktop: "/images/IMG_1989-6.png",
+    videoId:"video-6" ,
   },
   {
     title: "ALGO C",
@@ -84,13 +90,18 @@ const programs = [
     logoDesktop: "/images/Frame 291365 (13).png", 
     ribbonDesktop: "/images/bg-21.png",
     bgShapeDesktop: "/images/ellipse-desktop-pink.png",
-    imageDesktop: "/images/IMG_1989-7.png"
+    imageDesktop: "/images/IMG_1989-7.png",
+    videoId:"video-7" ,
   },
 ];
 
 
 
-export default function ProgramsSection() {
+export default function ProgramsSection({
+  onWatchClick,
+}: {
+  onWatchClick: (id: string) => void;
+}) {
  const [activeIndex, setActiveIndex] = useState<number | null>(null);
  const createId = (title: string) =>
   title.toLowerCase().replace(/\s+/g, "-");
@@ -164,20 +175,22 @@ export default function ProgramsSection() {
           </div>
 		  </div>
 		  {activeIndex === index && (
-                <button className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full flex items-center cursor-pointer gap-2 shadow-md relative z-10
-                md:hidden"
-                onClick={()=>{
-                document.getElementById("videos-slider")?.scrollIntoView({behavior:"smooth"});}}
+                <button 
+                 onClick={(e) => {
+                 e.stopPropagation(); // ✅ IMPORTANT
+                 onWatchClick(item.videoId);
+                 }}
+                 className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden"
                 >
-                  <Image
-                      src="/images/play_circle.png"
-                      alt="logo"
-                      width={17}
-                      height={17}
-                      className="object-contain w-[17px] h-[17px] "
-                   />
-                 Watch video
-                </button>
+                <Image
+                  src="/images/play_circle.png"
+                  alt="logo"
+                  width={17}
+                  height={17}
+                  className="object-contain w-[17px] h-[17px]"
+                />
+                Watch video
+              </button>
               )}
           </div>
 		   

@@ -1,12 +1,32 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react"; // ✅ ADD THIS
 import Image from "next/image";
-import Hero from "./components/hero"; 
+import Hero from "./components/hero";
 import Form from "./components/form";
 import ProgramsSection from "./components/ProgramsSection";
-import VideoSlider from './components/VideoSlider';
+import VideoSlider from "./components/VideoSlider";
+
 
 export default function ConnectPage() {
+  const [selectedVideoId, setSelectedVideoId] = useState<string | null>(null);
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+ 
+  const handleWatchClick = (id: string) => {
+  setSelectedVideoId(id);
+};
+
+
+useEffect(() => {
+  if (!selectedVideoId) return;
+
+  sliderRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, [selectedVideoId]);
+
+
   return (
     <main>
       {/*==============header================*/}
@@ -153,12 +173,15 @@ export default function ConnectPage() {
         </div>
         <div className="relative z-10 flex flex-col md:gap-6 px-2 xl:px-5 py-10 pt-[50px] max-w-[1360px] m-auto  md:w-full overflow-hidden">
                <h2 className="text-[32px] text-[#0090D5] font-bold leading-tight max-[324px]:text-[28px] md:text-[50px] xl:text-[52px]  md:w-[70%] lg:w-[60%] xl:w-[700px] uppercase pl-2 xl:pl-0">Young Engineers Programs:</h2>
-               <ProgramsSection />
+              <ProgramsSection onWatchClick={handleWatchClick} />
         </div>
       </section>
 
 
-      <section className="relative w-full flex flex-col items-center xl:min-h-[460px] xl:pt-[160px] xl:pb-[70px] bg-white pt-4 pb-14" id="videos-slider">
+      <section 
+      ref={sliderRef}
+      id="videos-slider"
+      className="relative w-full flex flex-col items-center xl:min-h-[460px] xl:pt-[160px] xl:pb-[70px] bg-white pt-4 pb-14" >
         {/* Background */}
         <div className="absolute inset-0 z-10 top-[-10px] max-[767px]:bg-[#fff] xl:top-[-60px] ">
           <div
@@ -169,7 +192,8 @@ export default function ConnectPage() {
             }}
           />
         </div>
-      <VideoSlider />
+      <VideoSlider selectedVideoId={selectedVideoId} />
+      
      </section>
 
 
@@ -204,7 +228,7 @@ export default function ConnectPage() {
         </div>
         <div className="relative flex items-center gap-2 justify-center w-[274px] xl:w-[730px] xl:gap-3">
           <Image
-           src="/images/Frame 1984078214.png"
+           src="/images/Frame 1984078214 (1).png"
            alt="logo"
            width={24}
            height={24}
