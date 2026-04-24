@@ -1,5 +1,8 @@
+"use client"; // Must be here because of useRouter and useState
+
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // 1. Import useRouter
 
 const programs = [
   {
@@ -95,16 +98,12 @@ const programs = [
   },
 ];
 
+export default function ProgramsSection() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const router = useRouter(); // 2. Initialize router
 
+  const createId = (title: string) => title.toLowerCase().replace(/\s+/g, "-");
 
-export default function ProgramsSection({
-  onWatchClick,
-}: {
-  onWatchClick: (id: string) => void;
-}) {
- const [activeIndex, setActiveIndex] = useState<number | null>(null);
- const createId = (title: string) =>
-  title.toLowerCase().replace(/\s+/g, "-");
   return (
     <div className="w-full max-w-[400px] mt-10 md:max-w-[100%]">
       {programs.map((item, index) => (
@@ -177,8 +176,9 @@ export default function ProgramsSection({
 		  {activeIndex === index && (
                 <button 
                  onClick={(e) => {
-                 e.stopPropagation(); // ✅ IMPORTANT
-                 onWatchClick(item.videoId);
+                   e.stopPropagation(); 
+                   // 3. Update the URL directly!
+                   router.push(`/?videoId=${item.videoId}#videos-slider`, { scroll: true });
                  }}
                  className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden"
                 >
@@ -202,7 +202,7 @@ export default function ProgramsSection({
 			     style={{
             backgroundImage: `url(${item.bgShapeDesktop})`,
             backgroundSize: "contain",
-            backgroundPosition: "center bottom", // ⬅️ IMPORTANT
+            backgroundPosition: "center bottom", 
             top: "-4px",
             backgroundRepeat: "no-repeat",
           }}
@@ -225,7 +225,7 @@ export default function ProgramsSection({
 			      style={{
             backgroundImage: `url(${item.bgShape})`,
             backgroundSize: "cover",
-            backgroundPosition: "center", // ⬅️ IMPORTANT
+            backgroundPosition: "center", 
             top: "0px",
             right:"13px",
             backgroundRepeat: "no-repeat",
