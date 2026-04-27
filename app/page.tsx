@@ -5,6 +5,7 @@ import ProgramsSection from "../components/ProgramsSection";
 import VideoSlider from "../components/VideoSlider";
 import Footer from "../components/footer";
 import FormSection from "@/components/FormSection";
+import InvalidFranchisee from "@/components/InvalidFranchisee";
 import { Suspense } from "react";
 
 // 1. Make the component async
@@ -16,6 +17,12 @@ export default async function ConnectPage({
 }) {
   // 3. Await the params before extracting the ID
   const resolvedParams = await searchParams;
+  const utmSource = resolvedParams?.utmSource;
+
+  if (!utmSource) {
+    return <InvalidFranchisee />;
+  }
+
   const selectedVideoId = typeof resolvedParams?.videoId === "string" ? resolvedParams.videoId : null;
 
   return (
