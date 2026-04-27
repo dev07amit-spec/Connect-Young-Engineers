@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import FormSection from "@/components/FormSection";
 import InvalidFranchisee from "@/components/InvalidFranchisee";
 import { Suspense } from "react";
+import axios from "axios";
 
 // 1. Make the component async
 export default async function ConnectPage({
@@ -17,9 +18,23 @@ export default async function ConnectPage({
 }) {
   // 3. Await the params before extracting the ID
   const resolvedParams = await searchParams;
-  const utmSource = resolvedParams?.utmSource;
+  const utmSource = typeof resolvedParams?.utmSource === "string" ? resolvedParams.utmSource : null;
 
   if (!utmSource) {
+    return <InvalidFranchisee />;
+  }
+
+  // Validate UTM source via API
+  try {
+    const response = await axios.get(
+      `https://translationconnect.youngengineers.org/wp-json/connect/v1/get-language-content/?utm_number=${utmSource}`
+    );
+
+    if (response.status !== 200 || response.data?.success === false) {
+      return <InvalidFranchisee />;
+    }
+  } catch (error) {
+    // If 404 or any other error, show invalid page
     return <InvalidFranchisee />;
   }
 
