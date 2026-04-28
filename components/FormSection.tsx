@@ -14,11 +14,11 @@ export default function FormSection() {
             <p className="text-[16px] text-[#FFFFFF] uppercase text-center mb-4">oficially recognized by</p>
             <div className="flex items-center justigy-between gap-5 max-[324px]:gap-3">
                 <div className="flex items-center gap-2">
-                  <Image src="/images/ICONS-BB (4).png" alt="logo" width={50} height={50} className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]" />
+                  <Image src="https://yefranchisees.b-cdn.net/connect-new/ICONS-BB%20(4).png" unoptimized alt="logo" width={50} height={50} className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]" />
                   <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[365px]:text-[11px] max-[324px]:text-[10px]">harvard <span className="block text-[8px] font-light tracking-[1px]">school of education</span></p>
                 </div>
                 <div className="flex items-center gap-2">
-                   <Image src="/images/ICONS-BB (5).png" alt="logo" width={50} height={50} className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]" />
+                   <Image src="https://yefranchisees.b-cdn.net/connect-new/ICONS-BB%20(5).png" unoptimized alt="logo" width={50} height={50} className="object-contain w-[50px] h-[50px] max-[400px]:w-[35px] max-[324px]:w-[24px]" />
                    <p className="text-[13px] font-bold uppercase text-[#fff] text-center max-[390px]:text-[12px] max-[365px]:text-[11px] max-[324px]:text-[10px]">european union <span className="block text-[8px] font-light tracking-[1px]">comission</span></p>
                 </div>
             </div>
@@ -27,10 +27,11 @@ export default function FormSection() {
             <div className="hidden md:block">
                 {/* ✅ FIX 4: Changed h-[500px] to h-auto to fix the aspect ratio warning */}
                 <Image 
-                  src="/images/mission_vision.png" 
+                  src="https://yefranchisees.b-cdn.net/connect-new/mission%26vision.webp" 
                   alt="logo" 
                   width={690} 
                   height={640} 
+                  unoptimized
                   className="object-contain w-[500px] h-auto xl:w-[690px] xl:h-auto" 
                 />
             </div>

@@ -2,105 +2,105 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // 1. Import useRouter
+//import { useRouter } from "next/navigation"; // 1. Import useRouter
 
 const programs = [
   {
     title: "BRICKS CHALLENGE",
     description:"Playful introduction to mechanics for early primary students",
-    ribbon: "/images/bg-8.png",
-  	logo: "/images/Frame 291365.png",
-    image: "/images/IMG_1989 1.png",
-    bgShape: "/images/Ellipse-637-6.png",
-    logoDesktop: "/images/Frame 291365 (7).png", 
-    ribbonDesktop: "/images/bg-15.png",
-    bgShapeDesktop: "/images/ellipse-desktop-green.png",
-    imageDesktop: "/images/IMG_1989-1.png",
-    videoId: "video-1" ,
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%288%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989%201%20%281%29.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%286%29.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%287%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-15.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-green.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-1.png",
+    videoId: "video-1",
   },
   {
     title: "GALILEO TECHNIC",
     description:"Advanced, structured mechanics for upper primary students",
-    ribbon: "/images/bg-9.png",
-	  logo: "/images/Frame 291365 (1).png",
-    image: "/images/img-05.png",
-    bgShape: "/images/Ellipse-637-7.png",
-    logoDesktop: "/images/Frame 291365 (8).png", 
-    ribbonDesktop: "/images/bg-16.png",
-    bgShapeDesktop: "/images/ellipse-desktop-red.png",
-    imageDesktop: "/images/IMG_1989-2.png",
-    videoId: "video-2" ,
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%289%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%281%29.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/0E3A8931-1.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%287%29.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%288%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-16.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-red.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-2.png",
+    videoId: "video-2",
   },
   {
     title: "BIG BUILDERS",
     description:"Hands-on building program introducing science and nature to preschool children",
-    ribbon: "/images/bg-10.png",
-	  logo: "/images/Frame 291365 (2).png",
-    image: "/images/img-2.png",
-    bgShape: "/images/Ellipse-637-2.png",
-    logoDesktop: "/images/Frame 291365 (9).png", 
-    ribbonDesktop: "/images/bg-17.png",
-    bgShapeDesktop: "/images/ellipse-desktop-yellow.png",
-    imageDesktop: "/images/IMG_1989-3.png",
-    videoId: "video-3" ,
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2810%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%282%29.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/_D6_9850-Poprawione-NR-1.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%282%29.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%289%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-17.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-yellow.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-3.png",
+    videoId: "video-3",
   },
   {
     title: "SMARTIVO",
     description:"Coding through play for kindergarteners",
-    ribbon: "/images/bg-11.png",
-	  logo: "/images/Frame 291365 (3).png",
-    image: "/images/img-03.png",
-    bgShape: "/images/Ellipse-637-3-1.png",
-    logoDesktop: "/images/Frame 291365 (10).png", 
-    ribbonDesktop: "/images/bg-18.png",
-    bgShapeDesktop: "/images/ellipse-desktop-blue.png",
-    imageDesktop: "/images/IMG_1989-4.png",
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2811%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%283%29.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5114-2.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-3-1.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2810%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-18.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-blue.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-4.png",
     videoId: "video-4",
   },
   {
     title: "ALGO PLAY",
     description:"Foundational coding for primary students",
-    ribbon: "/images/bg-12.png",
-	  logo: "/images/Frame 291365 (4).png",
-    image: "/images/img-06.png",
-    bgShape: "/images/Ellipse-637-4-1.png",
-    logoDesktop: "/images/Frame 291365 (11).png", 
-    ribbonDesktop: "/images/bg-19.png",
-    bgShapeDesktop: "/images/ellipse-desktop-purple.png",
-    imageDesktop: "/images/IMG_1989-5.png",
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2812%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%284%29.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/70274%202.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-4-1.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2811%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-19.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%2813%29.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-5.png",
     videoId: "video-5",
   },
   {
     title: "ROBO TOYS",
     description:"Mechanical design and coding for upper primary students",
-    ribbon: "/images/bg-13.png",
-	  logo: "/images/Frame 291365 (5).png",
-    image: "/images/img-04.png",
-    bgShape: "/images/Ellipse-637-8.png",
-    logoDesktop: "/images/Frame 291365 (12).png", 
-    ribbonDesktop: "/images/bg-20.png",
-    bgShapeDesktop: "/images/ellipse-desktop-teal.png",
-    imageDesktop: "/images/IMG_1989-6.png",
-    videoId:"video-6" ,
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2813%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%285%29.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5869%202%20%281%29.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%288%29.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2812%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-20.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%2814%29.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-6.png",
+    videoId:"video-6",
   },
   {
     title: "ALGO C",
     description:"C/C++ coding and robotics for middle and high school students",
-    ribbon: "/images/bg-14.png",
-	  logo: "/images/Frame 291365 (6).png",
-    image: "/images/img_01.png",
-    bgShape: "/images/Ellipse-637-5.png",
-    logoDesktop: "/images/Frame 291365 (13).png", 
-    ribbonDesktop: "/images/bg-21.png",
-    bgShapeDesktop: "/images/ellipse-desktop-pink.png",
-    imageDesktop: "/images/IMG_1989-7.png",
-    videoId:"video-7" ,
+    ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2814%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%286%29.png",
+    image: "https://yefranchisees.b-cdn.net/connect-new/_D6_0695%201.png",
+    bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%285%29%20%281%29.png",
+    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2813%29.png", 
+    ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-21.png",
+    bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%2815%29.png",
+    imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-7.png",
+    videoId:"video-7",
   },
 ];
 
 export default function ProgramsSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const router = useRouter(); // 2. Initialize router
+ // const router = useRouter(); // 2. Initialize router
 
   const createId = (title: string) => title.toLowerCase().replace(/\s+/g, "-");
 
@@ -136,6 +136,7 @@ export default function ProgramsSection() {
      		  alt={item.title}
      		  width={160}
           height={160}
+          unoptimized
      		  className="object-contain ml-[1.1px] mt-[10px] w-[160px] h-[160px]"
     		 />
   		 </div>
@@ -154,8 +155,9 @@ export default function ProgramsSection() {
     		 <Image
      		  src={item.logo}
      		  alt={item.title}
-     		   width={48}
-               height={48}
+     		  width={48}
+          height={48}
+          unoptimized
      		  className="object-contain ml-[1.1px] mt-[10px] w-[48px] h-[48px]"
     		 />
   		 </div>
@@ -175,11 +177,22 @@ export default function ProgramsSection() {
 		  </div>
 		  {activeIndex === index && (
                 <button 
-                 onClick={(e) => {
-                   e.stopPropagation(); 
-                   // 3. Update the URL directly!
-                   router.push(`/?videoId=${item.videoId}#videos-slider`, { scroll: true });
-                 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+
+                  // Scroll
+                  const el = document.getElementById("videos-slider");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+
+                  // Trigger video selection
+                  window.dispatchEvent(
+                    new CustomEvent("selectVideo", {
+                      detail: item.videoId,
+                    })
+                  );
+                }}
                  className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden"
                 >
                 <Image
@@ -187,6 +200,7 @@ export default function ProgramsSection() {
                   alt="logo"
                   width={17}
                   height={17}
+                  unoptimized
                   className="object-contain w-[17px] h-[17px]"
                 />
                 Watch video
@@ -213,6 +227,7 @@ export default function ProgramsSection() {
               alt={item.title}
               width={400}
               height={407}
+              unoptimized
               className="object-contain p-2 relative z-10 w-[400px] h-[407px]"
             />
             </div>
@@ -237,6 +252,7 @@ export default function ProgramsSection() {
               alt={item.title}
               width={175}
               height={160}
+              unoptimized
               className="object-contain p-2 relative z-10  w-[175px] h-[160px]"
             />
             </div>
