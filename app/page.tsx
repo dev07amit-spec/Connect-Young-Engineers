@@ -47,10 +47,11 @@ export default async function ConnectPage({
       {/*==============header================*/}
       <div className="flex justify-center items-center py-2 bg-white">
         <Image
-          src="/images/logo_horizontal.png"
+          src="https://yefranchisees.b-cdn.net/connect-new/logo_horizontal.png"
           alt="logo"
           width={120}
           height={120}
+          unoptimized
           className="object-contain w-[130px] h-[45px] xl:w-[160px] xl:h-[52px]"
         />
       </div>

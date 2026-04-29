@@ -5,8 +5,8 @@ export default function FormSection() {
   return (
         <section className="relative w-full flex flex-col items-center justify-center min-h-[700px] bg-white">
         <div className="absolute inset-0 z-10 top-0">
-          <div className="block md:hidden w-full h-full bg-cover bg-top" style={{ backgroundImage: `url('/images/Vector-bg.png')`, backgroundRepeat: "no-repeat" }} />
-          <div className="hidden md:block w-full h-full bg-cover bg-top" style={{ backgroundImage: `url('/images/path-desktop.png')`, backgroundRepeat: "no-repeat" }} />
+          <div className="block md:hidden w-full h-full bg-cover bg-top" style={{ backgroundImage: `url('https://yefranchisees.b-cdn.net/connect-new/Vector-bg.png')`, backgroundRepeat: "no-repeat" }} />
+          <div className="hidden md:block w-full h-full bg-cover bg-top" style={{ backgroundImage: `url('https://yefranchisees.b-cdn.net/connect-new/path-desktop.png')`, backgroundRepeat: "no-repeat" }} />
         </div>
         
         <div className="relative z-10 flex flex-col gap-4 md:gap-6 px-5 py-12 pt-[70px] pb-[80px]  max-w-[1360px] m-auto md:flex-row xl:items-center md:pt-[210px] md:pb-[150px]">

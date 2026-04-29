@@ -196,7 +196,7 @@ export default function ProgramsSection() {
                  className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden"
                 >
                 <Image
-                  src="/images/play_circle.png"
+                  src="https://yefranchisees.b-cdn.net/connect-new/play_circle.png"
                   alt="logo"
                   width={17}
                   height={17}

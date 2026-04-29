@@ -217,7 +217,7 @@ export default function ContactForm() {
             <span>Submitting...</span>
           ) : (
             <>
-              <Image src="/images/Vector.png" alt="logo" width={20} height={20} className="object-contain w-[20px] h-[20px]" />
+              <Image src="https://yefranchisees.b-cdn.net/connect-new/Vector-1.png" alt="logo" unoptimized width={20} height={20} className="object-contain w-[20px] h-[20px]" />
               Submit
             </>
           )}
