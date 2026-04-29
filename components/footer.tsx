@@ -9,14 +9,14 @@ export default function Footer() {
           <div
             className="block md:hidden w-full h-full bg-cover bg-[position:50%_-36%]"
             style={{
-              backgroundImage: `url('/images/footer-bg.png')`,
+              backgroundImage: `url('https://yefranchisees.b-cdn.net/connect-new/footer-bg.png')`,
               backgroundRepeat: "no-repeat",
             }}
           />
           <div
             className="hidden md:block w-full h-full bg-cover bg-bottom"
             style={{
-              backgroundImage: `url('/images/footer-bg.png')`,
+              backgroundImage: `url('https://yefranchisees.b-cdn.net/connect-new/footer-bg.png')`,
               backgroundRepeat: "no-repeat",
             }}
           />
@@ -24,26 +24,29 @@ export default function Footer() {
 
         <div className="relative flex items-center justify-center w-[274px] xl:w-[730px]">
           <Image
-          src="/images/logo+eu.png"
+          src="https://yefranchisees.b-cdn.net/connect-new/logo%2Beu.webp"
           alt="logo"
           width={274}
           height={56}
+          unoptimized
           className="object-contain w-[274px] h-[56px] mb-10 xl:w-[430px] xl:h-[130px]"
           />
         </div>
         <div className="relative flex items-center gap-2 justify-center w-[274px] xl:w-[730px] xl:gap-3">
           <Image
-           src="/images/Frame 1984078214 (1).png"
+           src="https://yefranchisees.b-cdn.net/connect-new/Frame%201984078214%20%281%29.png"
            alt="logo"
            width={24}
            height={24}
+           unoptimized
            className="object-contain w-[24px] h-[24px] block md:hidden"
           />
            <Image
-           src="/images/Frame 1984078214 (1).png"
+           src="https://yefranchisees.b-cdn.net/connect-new/Frame%201984078214%20%281%29.png"
            alt="logo"
            width={60}
            height={60}
+           unoptimized
            className="object-contain w-[60px] h-[60px] hidden md:block"
           />
 
@@ -56,10 +59,11 @@ export default function Footer() {
         <div className="relative w-10 h-10 flex items-center justify-center">
          <a href="#">
           <Image
-           src="/images/Social Icons.png"
+           src="https://yefranchisees.b-cdn.net/connect-new/Social%20Icons.webp"
            alt="logo"
            width={24}
            height={24}
+           unoptimized
            className="object-contain w-[24px] h-[24px]  xl:w-[60px] xl:h-[60px]"
           />
           </a>
@@ -68,10 +72,11 @@ export default function Footer() {
         <div className="w-10 h-10 rounded-full flex items-center justify-center">
           <a href="#">
           <Image
-           src="/images/Social Icons (1).png"
+           src="https://yefranchisees.b-cdn.net/connect-new/Social%20Icons%20(1).webp"
            alt="logo"
            width={24}
            height={24}
+           unoptimized
            className="object-contain w-[24px] h-[24px] xl:w-[60px] xl:h-[60px]"
           />
           </a>

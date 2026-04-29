@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
+import { useSearchParams } from "next/navigation"
 
 const videos = [
   { 
@@ -146,9 +147,9 @@ export default function VideoSlider({ selectedVideoId }: { selectedVideoId: stri
   useEffect(() => {
   if (!selectedVideoId) return;
 
-  const index = videos.findIndex(
-    (v) => `video-${v.id}` === selectedVideoId
-  );
+ const index = videos.findIndex(
+  (v) => `video-${v.id}` === selectedVideoId
+);
 
   if (index !== -1) {
     const newIndex = index + 1;
@@ -157,6 +158,28 @@ export default function VideoSlider({ selectedVideoId }: { selectedVideoId: stri
     setPlayingIndex(newIndex);
   }
 }, [selectedVideoId]);
+
+
+useEffect(() => {
+  const handler = (e: any) => {
+    const id = e.detail;
+
+    const index = videos.findIndex(
+      (v) => `video-${v.id}` === id
+    );
+
+    if (index !== -1) {
+      const newIndex = index + 1;
+      setActive(newIndex);
+      setPlayingIndex(newIndex);
+    }
+  };
+
+  window.addEventListener("selectVideo", handler);
+
+  return () => window.removeEventListener("selectVideo", handler);
+}, []);
+
 
   return (
     <div className="w-full max-w-[1360px] mx-auto relative z-10">
@@ -214,10 +237,11 @@ export default function VideoSlider({ selectedVideoId }: { selectedVideoId: stri
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Image
-                          src="/images/Layer_2.png"
+                          src="https://yefranchisees.b-cdn.net/connect-new/Layer_2.png"
                           alt="play"
                           width={80}
                           height={80}
+                          unoptimized
                           className='w-[30px] h-[30px] xl:w-[80px] xl:h-[80px]'
                         />
                       </div>
