@@ -95,7 +95,7 @@ export default function VideoHero() {
         {/* Play / Pause */}
         <button onClick={togglePlay}>
          <img
-           src={isPlaying ? "/images/Layer_1.png" : "/images/Layer_2.png"}
+           src={isPlaying ? "https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/Layer_1.png" : "https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/Layer_2.png"}
            alt="play-pause"
            className="w-[22px] h-[22px] object-contain"
          />

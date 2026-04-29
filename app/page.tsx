@@ -7,8 +7,8 @@ import Footer from "../components/footer";
 import FormSection from "@/components/FormSection";
 import InvalidFranchisee from "@/components/InvalidFranchisee";
 import { Suspense } from "react";
-import axios from "axios";
 import VideoSliderWrapper from "@/components/VideoSliderWrapper";
+import { getCampaignDetails } from "@/lib/utm";
 
 
 // 1. Make the component async
@@ -27,16 +27,9 @@ export default async function ConnectPage({
   }
 
   // Validate UTM source via API
-  try {
-    const response = await axios.get(
-      `https://translationconnect.youngengineers.org/wp-json/connect/v1/get-language-content/?utm_number=${utmSource}`
-    );
+  const campaignData = await getCampaignDetails(utmSource);
 
-    if (response.status !== 200 || response.data?.success === false) {
-      return <InvalidFranchisee />;
-    }
-  } catch (error) {
-    // If 404 or any other error, show invalid page
+  if (!campaignData) {
     return <InvalidFranchisee />;
   }
 
@@ -119,7 +112,7 @@ export default async function ConnectPage({
       </section>
 
       {/*====================Footer=================== */}
-      <Footer />
+      <Footer territoryName={campaignData.declared_territory_name} />
     </main>
   );
 }

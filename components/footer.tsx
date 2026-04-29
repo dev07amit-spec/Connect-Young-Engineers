@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export default function Footer() {
+interface FooterProps {
+  territoryName?: string;
+}
+
+export default function Footer({ territoryName }: FooterProps) {
   return (
 
           <section className="relative w-full flex flex-col min-h:h-[200px] items-center justify-center py-10 bg-white mt-[-1px]">
@@ -50,7 +54,7 @@ export default function Footer() {
            className="object-contain w-[60px] h-[60px] hidden md:block"
           />
 
-          <p className="text-[14px] text-white xl:text-[28px]">Young Engineers [territory name]</p>
+          <p className="text-[14px] text-white xl:text-[28px]">Young Engineers {territoryName || "[territory name]"}</p>
         </div>
         <hr className="relative w-[274px] border-t border-[#fff] mt-3 mb-3 xl:w-[700px] xl:mt-8 xl:mb-8" />
           

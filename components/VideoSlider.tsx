@@ -8,7 +8,7 @@ const videos = [
   { 
     id: 1, 
     title: 'Bricks Challenge', 
-    thumbnail: '/images/img-01.png',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png',
     videoUrl: '/videos/young-engineers-desktop.mp4', 
     videoUrlMobile: '/videos/young-engineers-mobile.mp4'
   },
@@ -16,7 +16,7 @@ const videos = [
   { 
     id: 2, 
     title: 'Galileo Technic', 
-    thumbnail: '/images/img-02.jpg', 
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
     videoUrl: '/videos/galileo-technic.mp4',
     videoUrlMobile: '/videos/galileo-technic-mobile.mp4'
   },
@@ -24,7 +24,7 @@ const videos = [
   { 
     id: 3, 
     title: 'Big Builders', 
-    thumbnail: '/images/img-033.png', 
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-033.png', 
     videoUrl: '/videos/big-builders-desktop.mp4',
     videoUrlMobile: '/videos/big-builders-mobile.mp4' 
   },
@@ -32,7 +32,7 @@ const videos = [
   { 
     id: 4, 
     title: 'Smartivo', 
-    thumbnail: '/images/img02.png', 
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img02.png', 
     videoUrl: '/videos/SV-tangible-screen.mp4',
     videoUrlMobile: '/videos/SV-tangible-screen.mp4'
   },
@@ -40,7 +40,7 @@ const videos = [
   { 
     id: 5, 
     title: 'Algo Play', 
-    thumbnail: '/images/img-01.png', 
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png', 
     videoUrl: '/videos/algoPlay-desktop.mp4',
     videoUrlMobile: '/videos/algoPlay-mobile.mp4'
   },
@@ -48,7 +48,7 @@ const videos = [
   { 
     id: 6, 
     title: 'Robo Toys', 
-    thumbnail: '/images/img-02.jpg', 
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
     videoUrl: '/videos/robotoys.mp4',
     videoUrlMobile: '/videos/robotoys-mobile.mp4'
   },
