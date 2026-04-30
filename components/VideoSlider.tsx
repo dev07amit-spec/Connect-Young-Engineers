@@ -9,49 +9,58 @@ const videos = [
     id: 1, 
     title: 'Bricks Challenge', 
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png',
-    videoUrl: '/videos/young-engineers-desktop.mp4', 
-    videoUrlMobile: '/videos/young-engineers-mobile.mp4'
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Young%20Engineers%20(16-9%20Aspect%20Ratio)_1.mp4', 
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/CUT%20(9x16%20instagram)%20revised_1.mp4'
   },
 
   { 
     id: 2, 
     title: 'Galileo Technic', 
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
-    videoUrl: '/videos/galileo-technic.mp4',
-    videoUrlMobile: '/videos/galileo-technic-mobile.mp4'
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/1920x1080%20(16x9)_1.mp4',
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/1080x1920%20(9x16)_1.mp4'
   },
 
   { 
     id: 3, 
     title: 'Big Builders', 
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-033.png', 
-    videoUrl: '/videos/big-builders-desktop.mp4',
-    videoUrlMobile: '/videos/big-builders-mobile.mp4' 
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Big%20Builders%20(1920x1080)_1.mp4',
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/Big%20Builders%20(1080x1920)_1.mp4' 
   },
 
   { 
     id: 4, 
     title: 'Smartivo', 
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img02.png', 
-    videoUrl: '/videos/SV-tangible-screen.mp4',
-    videoUrlMobile: '/videos/SV-tangible-screen.mp4'
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/SV%20-%20Tangible%20%26%20Screen%20(2)_1%20(1).mp4',
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/SV%20Vertical%20-%20Screen%20%26%20Tanbile%20Coding_1.mp4'
   },
   
   { 
     id: 5, 
     title: 'Algo Play', 
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png', 
-    videoUrl: '/videos/algoPlay-desktop.mp4',
-    videoUrlMobile: '/videos/algoPlay-mobile.mp4'
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/AP%20RT%20(1920x1080)_1.mp4',
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/AP%20RT%20(1080x1920)_1.mp4'
   },
 
   { 
     id: 6, 
     title: 'Robo Toys', 
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
-    videoUrl: '/videos/robotoys.mp4',
-    videoUrlMobile: '/videos/robotoys-mobile.mp4'
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/AP%20RT%20(1920x1080)_1.mp4',
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/AP%20RT%20(1080x1920)_1.mp4'
   },
+
+  { 
+    id: 7, 
+    title: 'AlgoC', 
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Screen%202%20-%2016x9_1.mp4',
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/Screen%202%20-%209x16_1.mp4'
+  },
+
 ];
 
 export default function VideoSlider({ selectedVideoId }: { selectedVideoId: string | null }) {

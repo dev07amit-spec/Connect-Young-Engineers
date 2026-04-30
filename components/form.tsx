@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { submitContactForm } from "@/lib/formSubmission";
+import { countryCodes } from "@/lib/countryCodes";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -14,12 +15,50 @@ export default function ContactForm() {
     lastName: "",
     email: "",
     phone: "",
+    countryCode: "+1",
     agree: false,
   });
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const selectedCountry = countryCodes.find(c => c.code === formData.countryCode) || countryCodes[0];
+
+  const filteredCountries = countryCodes.filter(c =>
+    c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    c.code.includes(searchTerm)
+  );
+
+  useEffect(() => {
+    // Detect country by IP
+    const detectCountry = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (data.country_calling_code) {
+          setFormData(prev => ({ ...prev, countryCode: data.country_calling_code }));
+        }
+      } catch (error) {
+        console.error("Country detection failed:", error);
+        // Fallback to +1 if detection fails
+        setFormData(prev => ({ ...prev, countryCode: "+1" }));
+      }
+    };
+
+    detectCountry();
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // --- Stricter Validation Helpers ---
   const validateEmail = (email: string) => {
@@ -85,7 +124,7 @@ export default function ContactForm() {
         firstName: formData.firstName,
         lastName: formData.lastName || null,
         email: formData.email,
-        phone: formData.phone,
+        phone: `${formData.countryCode}${formData.phone}`,
         source: "Connect App",
         utmSource: utmSource || "",
       };
@@ -98,6 +137,7 @@ export default function ContactForm() {
         lastName: "",
         email: "",
         phone: "",
+        countryCode: "+1",
         agree: false,
       });
     } catch (err: any) {
@@ -156,18 +196,100 @@ export default function ContactForm() {
           className="w-full px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50"
         />
 
-        {/* Phone */}
-        <input
-          type="tel"
-          name="phone"
-          placeholder="+0 (000) - 000 - 00 - 00"
-          maxLength={20} // Prevents spamming numbers endlessly
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          disabled={isLoading}
-          className="w-full px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50"
-        />
+        {/* Phone with Country Code Dropdown */}
+        <div className="relative flex gap-2 w-full">
+          <div className="relative flex-none" ref={dropdownRef}>
+            <button
+              type="button"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              disabled={isLoading}
+              className="flex items-center justify-between gap-1.5 px-3 py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent min-w-[95px] md:min-w-[110px] disabled:opacity-50"
+            >
+              <img
+                src={selectedCountry?.svg}
+                alt={selectedCountry?.name}
+                className="w-5 h-3.5 object-cover rounded-[2px]"
+              />
+              <span className="text-sm font-medium">{selectedCountry?.code}</span>
+              <svg
+                className={`w-3.5 h-3.5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isDropdownOpen && (
+              <div className="absolute z-[100] mt-2 w-64 left-0 bg-[#003B63] border border-[#ffffff40] rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 backdrop-blur-sm">
+                <div className="p-3 border-b border-white/10">
+                  <input
+                    type="text"
+                    placeholder="Search country..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:border-white/50 placeholder:text-white/40"
+                  />
+                </div>
+                <div className="max-h-64 overflow-y-auto custom-scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                  <style jsx>{`
+                    .custom-scrollbar-thin::-webkit-scrollbar {
+                      width: 4px;
+                    }
+                    .custom-scrollbar-thin::-webkit-scrollbar-track {
+                      background: transparent;
+                    }
+                    .custom-scrollbar-thin::-webkit-scrollbar-thumb {
+                      background: rgba(255, 255, 255, 0.2);
+                      border-radius: 10px;
+                    }
+                    .custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
+                      background: rgba(255, 255, 255, 0.3);
+                    }
+                  `}</style>
+                  {filteredCountries.map((country) => (
+                    <button
+                      key={`${country.id}-${country.code}`}
+                      type="button"
+                      onClick={() => {
+                        setFormData({ ...formData, countryCode: country.code });
+                        setIsDropdownOpen(false);
+                        setSearchTerm("");
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/10 text-white text-left transition-all group"
+                    >
+                      <img
+                        src={country.svg}
+                        alt={country.name}
+                        className="w-6 h-4 object-cover rounded shadow-sm group-hover:scale-110 transition-transform"
+                      />
+                      <span className="flex-1 text-sm font-light truncate">{country.name}</span>
+                      <span className="text-xs font-semibold text-white/60 group-hover:text-white transition-colors">{country.code}</span>
+                    </button>
+                  ))}
+                  {filteredCountries.length === 0 && (
+                    <div className="px-4 py-8 text-center text-white/40 text-sm italic">
+                      No countries found
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="000 - 000 - 00 - 00"
+            maxLength={20}
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            disabled={isLoading}
+            className="flex-1 min-w-0 px-4 md:px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50 text-sm md:text-base placeholder:text-white/50"
+          />
+        </div>
 
         {/* Checkbox */}
         <label className="flex items-center gap-3 text-[12px] text-white font-light cursor-pointer">
