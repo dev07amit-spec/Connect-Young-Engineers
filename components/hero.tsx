@@ -58,7 +58,7 @@ export default function VideoHero() {
         onTimeUpdate={handleTimeUpdate}
         className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
       >
-        <source src="/videos/no-audio-canvas-desktop.mp4" type="video/mp4" />
+        <source src="https://yefranchisees.b-cdn.net/connect-new/desktop-videos/no-audio-canvas-desktop.mp4" type="video/mp4" />
       </video>
       
       {/*  Background Video for mobile */}
@@ -71,7 +71,7 @@ export default function VideoHero() {
         onTimeUpdate={handleTimeUpdate}
         className="absolute top-0 left-0 w-full h-full object-cover block md:hidden"
       >
-        <source src="/videos/connect-new-mobile.mp4" type="video/mp4" />
+        <source src="https://yefranchisees.b-cdn.net/connect-new/mobile-videos/connect-new-mobile.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
