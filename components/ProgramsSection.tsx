@@ -105,7 +105,7 @@ export default function ProgramsSection() {
   const createId = (title: string) => title.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <div className="w-full max-w-[400px] mt-10 md:max-w-[100%]">
+    <div className="w-full max-w-[400px] mt-10 md:max-w-[100%] mx-auto">
       {programs.map((item, index) => (
        <div
        id={createId(item.title)}
@@ -155,10 +155,10 @@ export default function ProgramsSection() {
     		 <Image
      		  src={item.logo}
      		  alt={item.title}
-     		  width={48}
+     		  width={50}
           height={48}
           unoptimized
-     		  className="object-contain ml-[1.1px] mt-[10px] w-[48px] h-[48px]"
+     		  className="object-contain ml-[0.5px] mt-[10px] w-[50px] h-[48px]"
     		 />
   		 </div>
 		 </div>
@@ -193,7 +193,7 @@ export default function ProgramsSection() {
                     })
                   );
                 }}
-                 className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden"
+                 className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden watch-btn"
                 >
                 <Image
                   src="https://yefranchisees.b-cdn.net/connect-new/play_circle.png"

@@ -206,6 +206,7 @@ div#algo-c .img-main {
 div#algo-c .img-main img {
     height: 198px!important;
     width: 180px!important;
+    right: -1px !important;
 }
 
 /*===============active==============*/
@@ -238,5 +239,73 @@ div#algo-play.active .img-main {
 div#algo-c.active .img-main {
     top: 10px!important;
     right: -14px!important;
+}
+}
+
+@media (max-width: 364px) {
+.program-box {
+    width: 100%!important;
+    max-width: 330px!important;
+}
+.program-box .img-bg {
+    right: 0px!important;
+    width: 100px;
+    background-position: left!important;
+}
+.program-box p {
+    font-size: 11px;
+    width: 90%;
+    line-height: 15px;
+}
+div#bricks-challenge .img-main img {
+    height: 176px !important;
+    right: 0px!important;
+}
+
+div#big-builders .img-main img {
+    height: 170px !important;
+    right: -4px;
+}
+div#algo-play .img-main img {
+    width: 180px !important;
+    right: -10px !important;
+    bottom: -4px !important;
+}
+div#robo-toys .img-main img {
+    right: -1px!important;
+}
+div#algo-c .img-main img {
+    right: -2px!important;
+}
+.watch-btn {
+    font-size: 11px;
+    width: 80%;
+    padding: 8px;
+    height: 32px;
+    gap: 4px;
+}
+.watch-btn img {
+    width: 13px;
+    height: 13px;
+}
+}
+@media (max-width: 324px) {
+.program-box {
+    width: 100%!important;
+    max-width: 300px!important;
+}
+div#bricks-challenge .img-main img {
+    height: 176px !important;
+    right: 16px!important;
+}
+div#galileo-technic .img-main img {
+    right: 10px!important;
+}
+div#big-builders .img-main img {
+    height: 200px !important;
+    width: 132px!important;
+}
+.program-box p {
+    width: 94%;
 }
 }
