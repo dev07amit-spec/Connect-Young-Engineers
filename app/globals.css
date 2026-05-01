@@ -309,3 +309,11 @@ div#big-builders .img-main img {
     width: 94%;
 }
 }
+.absolute.z-\[100\].mt-2.w-64.left-0.bg-\[\#003B63\].border.border-\[\#ffffff40\].rounded-xl.shadow-2xl.overflow-hidden.animate-in.fade-in.zoom-in.duration-200.backdrop-blur-sm {
+    height: 250px !important;
+}
+@media (max-width: 767px) {
+.absolute.z-\[100\].mt-2.w-64.left-0.bg-\[\#003B63\].border.border-\[\#ffffff40\].rounded-xl.shadow-2xl.overflow-hidden.animate-in.fade-in.zoom-in.duration-200.backdrop-blur-sm {
+    height: 190px !important;
+}
+}
