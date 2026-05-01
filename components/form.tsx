@@ -19,7 +19,15 @@ export default function ContactForm() {
     agree: false,
   });
 
-  const [error, setError] = useState("");
+  // Upgraded error state to handle individual fields
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    submit: ""
+  });
+
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -44,7 +52,6 @@ export default function ContactForm() {
         }
       } catch (error) {
         console.error("Country detection failed:", error);
-        // Fallback to +1 if detection fails
         setFormData(prev => ({ ...prev, countryCode: "+1" }));
       }
     };
@@ -62,31 +69,39 @@ export default function ContactForm() {
 
   // --- Stricter Validation Helpers ---
   const validateEmail = (email: string) => {
-    // Requires standard format AND a valid domain ending (at least 2 letters, e.g., .co, .com)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   };
 
   const validatePhone = (phone: string) => {
-    // Validates phone number characters and ensures digit count is between 7 and 15
     const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\./0-9]*$/;
     const digitCount = phone.replace(/\D/g, "").length;
-    return phoneRegex.test(phone) && digitCount >= 7 && digitCount <= 15;
+    // Updated max length to 12
+    return phoneRegex.test(phone) && digitCount >= 7 && digitCount <= 12;
   };
   // -----------------------------------
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
 
-    // Auto-clear success/error messages when the user corrects their input
-    if (error) setError("");
     if (success) setSuccess(false);
+    // Auto-clear the specific field error when the user starts typing again
+    setErrors(prev => ({ ...prev, [name]: "", submit: "" }));
 
-    // Optional: Real-time blocking of letters in the phone field
+    // Block letters in phone field
     if (name === "phone") {
-      // Only allow numbers, plus, dashes, parentheses, and spaces
       const cleanedValue = value.replace(/[^\d\+\-\(\)\s]/g, "");
+
+      // NEW: Stop them from typing if there are already 12 numbers
+      if (cleanedValue.replace(/\D/g, "").length > 12) return;
+
       setFormData({ ...formData, phone: cleanedValue });
+      return;
+    }
+    // NEW: Block numbers and special chars in Name fields (allow letters, spaces, hyphens)
+    if (name === "firstName" || name === "lastName") {
+      const cleanedValue = value.replace(/[^a-zA-Z\s\-]/g, "");
+      setFormData({ ...formData, [name]: cleanedValue });
       return;
     }
 
@@ -96,26 +111,55 @@ export default function ContactForm() {
     });
   };
 
+  // NEW: Validate fields exactly when the user leaves them
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "email" && value.length > 0) {
+      if (!validateEmail(value)) {
+        setErrors(prev => ({ ...prev, email: "Please enter a valid email address." }));
+      }
+    }
+
+    if (name === "phone" && value.length > 0) {
+      if (!validatePhone(value)) {
+        setErrors(prev => ({ ...prev, phone: "Please enter 7 to 12 digits." }));
+      }
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Run validations before attempting submission
+    let formIsValid = true;
+    let newErrors = { firstName: "", lastName: "", email: "", phone: "", submit: "" };
+
+    // Run final validations before submission
     if (!validateEmail(formData.email)) {
-      setError("Please enter a valid email address (e.g., name@domain.com).");
-      return;
+      newErrors.email = "Please enter a valid email address.";
+      formIsValid = false;
     }
 
     if (!validatePhone(formData.phone)) {
-      setError("Please enter a valid phone number with 7 to 15 digits.");
-      return;
+      newErrors.phone = "Please enter a valid phone number.";
+      formIsValid = false;
+    }
+
+    if (!formData.firstName) {
+      newErrors.firstName = "First name is required.";
+      formIsValid = false;
     }
 
     if (!formData.agree) {
-      setError("Please accept the terms.");
-      return;
+      newErrors.submit = "Please accept the terms.";
+      formIsValid = false;
     }
 
-    setError("");
+    setErrors(newErrors);
+
+    // If any validation failed, stop submission
+    if (!formIsValid) return;
+
     setSuccess(false);
     setIsLoading(true);
 
@@ -141,7 +185,7 @@ export default function ContactForm() {
         agree: false,
       });
     } catch (err: any) {
-      setError(typeof err === "string" ? err : "An unexpected error occurred.");
+      setErrors(prev => ({ ...prev, submit: typeof err === "string" ? err : "An unexpected error occurred." }));
     } finally {
       setIsLoading(false);
     }
@@ -158,137 +202,151 @@ export default function ContactForm() {
       </p>
 
       <form onSubmit={handleSubmit} className="p-6 px-0 rounded-2xl w-full max-w-md space-y-4">
+
         {/* First Name */}
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          maxLength={50} // Added limitation
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-          disabled={isLoading}
-          className="w-full px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50"
-        />
-
-        {/* Last Name */}
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          maxLength={50} // Added limitation
-          value={formData.lastName}
-          onChange={handleChange}
-          disabled={isLoading}
-          className="w-full px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50"
-        />
-
-        {/* Email */}
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          maxLength={100} // Stops the user from typing a massive email
-          value={formData.email}
-          onChange={handleChange}
-          required
-          disabled={isLoading}
-          className="w-full px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50"
-        />
-
-        {/* Phone with Country Code Dropdown */}
-        <div className="relative flex gap-2 w-full">
-          <div className="relative flex-none" ref={dropdownRef}>
-            <button
-              type="button"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              disabled={isLoading}
-              className="flex items-center justify-between gap-1.5 px-3 py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent min-w-[95px] md:min-w-[110px] disabled:opacity-50"
-            >
-              <img
-                src={selectedCountry?.svg}
-                alt={selectedCountry?.name}
-                className="w-5 h-3.5 object-cover rounded-[2px]"
-              />
-              <span className="text-sm font-medium">{selectedCountry?.code}</span>
-              <svg
-                className={`w-3.5 h-3.5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            {isDropdownOpen && (
-              <div className="absolute z-[100] mt-2 w-64 left-0 bg-[#003B63] border border-[#ffffff40] rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 backdrop-blur-sm">
-                <div className="p-3 border-b border-white/10">
-                  <input
-                    type="text"
-                    placeholder="Search country..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:border-white/50 placeholder:text-white/40"
-                  />
-                </div>
-                <div className="max-h-64 overflow-y-auto custom-scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                  <style jsx>{`
-                    .custom-scrollbar-thin::-webkit-scrollbar {
-                      width: 4px;
-                    }
-                    .custom-scrollbar-thin::-webkit-scrollbar-track {
-                      background: transparent;
-                    }
-                    .custom-scrollbar-thin::-webkit-scrollbar-thumb {
-                      background: rgba(255, 255, 255, 0.2);
-                      border-radius: 10px;
-                    }
-                    .custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
-                      background: rgba(255, 255, 255, 0.3);
-                    }
-                  `}</style>
-                  {filteredCountries.map((country) => (
-                    <button
-                      key={`${country.id}-${country.code}`}
-                      type="button"
-                      onClick={() => {
-                        setFormData({ ...formData, countryCode: country.code });
-                        setIsDropdownOpen(false);
-                        setSearchTerm("");
-                      }}
-                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/10 text-white text-left transition-all group"
-                    >
-                      <img
-                        src={country.svg}
-                        alt={country.name}
-                        className="w-6 h-4 object-cover rounded shadow-sm group-hover:scale-110 transition-transform"
-                      />
-                      <span className="flex-1 text-sm font-light truncate">{country.name}</span>
-                      <span className="text-xs font-semibold text-white/60 group-hover:text-white transition-colors">{country.code}</span>
-                    </button>
-                  ))}
-                  {filteredCountries.length === 0 && (
-                    <div className="px-4 py-8 text-center text-white/40 text-sm italic">
-                      No countries found
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-
+        <div className="w-full">
           <input
-            type="tel"
-            name="phone"
-            placeholder="000 - 000 - 00 - 00"
-            maxLength={20}
-            value={formData.phone}
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            maxLength={20} // Changed to 20
+            value={formData.firstName}
             onChange={handleChange}
             required
             disabled={isLoading}
-            className="flex-1 min-w-0 px-4 md:px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50 text-sm md:text-base placeholder:text-white/50"
+            className={`w-full px-[30px] py-[15px] rounded-[50px] border ${errors.firstName ? 'border-red-400' : 'border-white'} text-white h-[50px] bg-transparent disabled:opacity-50`}
           />
+          {errors.firstName && <p className="text-red-400 text-[12px] mt-1 ml-[30px]">{errors.firstName}</p>}
+        </div>
+
+        {/* Last Name */}
+        <div className="w-full">
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            maxLength={20} // Changed to 20
+            value={formData.lastName}
+            onChange={handleChange}
+            disabled={isLoading}
+            className="w-full px-[30px] py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent disabled:opacity-50"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="w-full">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            maxLength={100}
+            value={formData.email}
+            onChange={handleChange}
+            onBlur={handleBlur} // NEW: Validates when leaving field
+            required
+            disabled={isLoading}
+            className={`w-full px-[30px] py-[15px] rounded-[50px] border ${errors.email ? 'border-red-400' : 'border-white'} text-white h-[50px] bg-transparent disabled:opacity-50`}
+          />
+          {errors.email && <p className="text-red-400 text-[12px] mt-1 ml-[30px]">{errors.email}</p>}
+        </div>
+
+        {/* Phone with Country Code Dropdown */}
+        <div className="w-full">
+          <div className="relative flex gap-2 w-full z-50">
+            <div className="relative flex-none" ref={dropdownRef}>
+              <button
+                type="button"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                disabled={isLoading}
+                className="cursor-pointer flex items-center justify-between gap-1.5 px-3 py-[15px] rounded-[50px] border border-white text-white h-[50px] bg-transparent min-w-[95px] md:min-w-[110px] disabled:opacity-50"
+              >
+                <img
+                  src={selectedCountry?.svg}
+                  alt={selectedCountry?.name}
+                  className="w-5 h-3.5 object-cover rounded-[2px]"
+                />
+                <span className="text-sm font-medium">{selectedCountry?.code}</span>
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {isDropdownOpen && (
+                <div className="absolute z-[100] mt-2 w-64 left-0 bg-[#003B63] border border-[#ffffff40] rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 backdrop-blur-sm">
+                  <div className="p-3 border-b border-white/10">
+                    <input
+                      type="text"
+                      placeholder="Search country..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:border-white/50 placeholder:text-white/40"
+                    />
+                  </div>
+                  <div className="max-h-64 overflow-y-auto custom-scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                    <style jsx>{`
+                      .custom-scrollbar-thin::-webkit-scrollbar {
+                        width: 4px;
+                      }
+                      .custom-scrollbar-thin::-webkit-scrollbar-track {
+                        background: transparent;
+                      }
+                      .custom-scrollbar-thin::-webkit-scrollbar-thumb {
+                        background: rgba(255, 255, 255, 0.2);
+                        border-radius: 10px;
+                      }
+                      .custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                      }
+                    `}</style>
+                    {filteredCountries.map((country) => (
+                      <button
+                        key={`${country.id}-${country.code}`}
+                        type="button"
+                        onClick={() => {
+                          setFormData({ ...formData, countryCode: country.code });
+                          setIsDropdownOpen(false);
+                          setSearchTerm("");
+                        }}
+                        className="cursor-pointer w-full flex items-center gap-3 px-4 py-3 hover:bg-white/10 text-white text-left transition-all group"
+                      >
+                        <img
+                          src={country.svg}
+                          alt={country.name}
+                          className="w-6 h-4 object-cover rounded shadow-sm group-hover:scale-110 transition-transform"
+                        />
+                        <span className="flex-1 text-sm font-light truncate">{country.name}</span>
+                        <span className="text-xs font-semibold text-white/60 group-hover:text-white transition-colors">{country.code}</span>
+                      </button>
+                    ))}
+                    {filteredCountries.length === 0 && (
+                      <div className="px-4 py-8 text-center text-white/40 text-sm italic">
+                        No countries found
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="000 - 000 - 00 - 00"
+              maxLength={20}
+              value={formData.phone}
+              onChange={handleChange}
+              onBlur={handleBlur} // NEW: Validates when leaving field
+              required
+              disabled={isLoading}
+              className={`flex-1 min-w-0 px-4 md:px-[30px] py-[15px] rounded-[50px] border ${errors.phone ? 'border-red-400' : 'border-white'} text-white h-[50px] bg-transparent disabled:opacity-50 text-sm md:text-base placeholder:text-white/50`}
+            />
+          </div>
+          {errors.phone && <p className="text-red-400 text-[12px] mt-1 ml-[120px]">{errors.phone}</p>}
         </div>
 
         {/* Checkbox */}
@@ -316,8 +374,8 @@ export default function ContactForm() {
           </span>
         </label>
 
-        {/* Error Message */}
-        {error && <p className="text-red-400 text-[12px]">{error}</p>}
+        {/* Submit-Level Error Message */}
+        {errors.submit && <p className="text-red-400 text-[12px] text-center">{errors.submit}</p>}
 
         {/* Success Message */}
         {success && (
@@ -331,8 +389,8 @@ export default function ContactForm() {
           type="submit"
           disabled={!formData.agree || isLoading}
           className={`w-full flex items-center justify-center h-[50px] rounded-[50px] gap-[10px] text-[16px] font-light transition ${formData.agree && !isLoading
-              ? "bg-white text-black cursor-pointer hover:bg-gray-200"
-              : "bg-[#F2F2F2] text-[#828282] cursor-not-allowed"
+            ? "bg-white text-black cursor-pointer hover:bg-gray-200"
+            : "bg-[#F2F2F2] text-[#828282] cursor-not-allowed"
             }`}
         >
           {isLoading ? (

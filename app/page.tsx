@@ -71,8 +71,8 @@ export default async function ConnectPage({
           <div className="ml-4 min-w-[400px] lg:min-w-[580px] text-center">
             <h3 className="text-[27px] text-[#0069A7] uppercase mb-6">oficially recognized by</h3>
             <div className="flex items-center justify-center gap-10">
-              <Image src="https://yefranchisees.b-cdn.net/connect-new/Frame%201984078163.png" alt="logo" unoptimized  width={200} height={130} className="object-contain w-[200px] h-[130px]" />
-              <Image src="https://yefranchisees.b-cdn.net/connect-new/Frame%201984078167.png" alt="logo" unoptimized  width={200} height={130} className="object-contain w-[200px] h-[130px]" />
+              <Image src="https://yefranchisees.b-cdn.net/connect-new/Frame%201984078163.png" alt="logo" unoptimized width={200} height={130} className="object-contain w-[200px] h-[130px]" />
+              <Image src="https://yefranchisees.b-cdn.net/connect-new/Frame%201984078167.png" alt="logo" unoptimized width={200} height={130} className="object-contain w-[200px] h-[130px]" />
             </div>
           </div>
         </div>
