@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "yefranchisees.b-cdn.net",
       },
+      {
+        protocol: "https",
+        hostname: "yemedia.b-cdn.net",
+      }
     ],
   },
 };
