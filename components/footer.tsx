@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface FooterProps {
   territoryName?: string;
@@ -89,13 +90,13 @@ export default function Footer({ territoryName }: FooterProps) {
 
       {/* Links */}
       <div className="relative flex justify-center items-center gap-2 text-sm mb-4">
-        <a href="https://translationconnect.youngengineers.org/privacy-policy/" target="_blank" className="underline hover:opacity-80 text-[14px] text-white xl:text-[28px]">
+        <Link href="/privacy-policy" className="underline hover:opacity-80 text-[14px] text-white xl:text-[28px]">
           Privacy Policy
-        </a>
+        </Link>
         <span className="text-white xl:text-[28px]">|</span>
-        <a href="https://translationconnect.youngengineers.org/terms-of-service/" target="_blank" className="underline hover:opacity-80 text-[14px] text-white xl:text-[28px] ">
+        <Link href="/terms-of-service" className="underline hover:opacity-80 text-[14px] text-white xl:text-[28px] ">
           Terms of Service
-        </a>
+        </Link>
       </div>
       <hr className="relative w-[274px] border-t border-[#fff] mt-3 mb-3 xl:w-[700px] xl:mt-8 xl:mb-8" />
 

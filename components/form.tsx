@@ -2,9 +2,52 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { submitContactForm } from "@/lib/formSubmission";
 import { countryCodes } from "@/lib/countryCodes";
+
+const SuccessPopup = ({ onClose }: { onClose: () => void }) => {
+  return (
+    <div className="fixed inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center p-4 z-[10000]">
+      <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-sm text-center animate-in fade-in zoom-in duration-300">
+        <div className="flex justify-end">
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Close popup"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="mt-2 flex flex-col items-center">
+          <div className="bg-blue-500 text-white rounded-full p-3 inline-flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+
+          <h2 className="text-3xl font-bold text-blue-500 mb-3">Thank you!</h2>
+          <p className="text-gray-600 text-sm mb-6">
+            We’ve received your information and will contact you via WhatsApp shortly.
+          </p>
+          <button
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-150 cursor-pointer"
+            onClick={() => {
+              if(typeof window !== 'undefined'){
+                window.open('https://www.youngengineers.org', '_blank')}}
+              }
+          >
+            <span>Find out More</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -30,6 +73,7 @@ export default function ContactForm() {
 
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -176,6 +220,7 @@ export default function ContactForm() {
       await submitContactForm(payload);
 
       setSuccess(true);
+      setShowPopup(true);
       setFormData({
         firstName: "",
         lastName: "",
@@ -364,37 +409,38 @@ export default function ContactForm() {
           </div>
           <span className="w-[90%] md:text-[16px]">
             I have read and agree to{" "}
-            <a href="https://translationconnect.youngengineers.org/privacy-policy/" target="_blank" className="underline">
+            <Link href="/privacy-policy" className="underline">
               Privacy Policy
-            </a>{" "}
+            </Link>{" "}
             &{" "}
-            <a href="https://translationconnect.youngengineers.org/terms-of-service/" target="_blank" className="underline">
+            <Link href="/terms-of-service" className="underline">
               Terms of Service
-            </a>
+            </Link>
           </span>
         </label>
 
         {/* Submit-Level Error Message */}
         {errors.submit && <p className="text-red-400 text-[12px] text-center">{errors.submit}</p>}
 
-        {/* Success Message */}
-        {success && (
-          <p className="text-green-400 text-[14px] text-center">
-            Form submitted successfully ✅
-          </p>
-        )}
+        {/* Success Message - Removed plain text as per request */}
 
         {/* Submit */}
         <button
           type="submit"
           disabled={!formData.agree || isLoading}
-          className={`w-full flex items-center justify-center h-[50px] rounded-[50px] gap-[10px] text-[16px] font-light transition ${formData.agree && !isLoading
-            ? "bg-white text-black cursor-pointer hover:bg-gray-200"
+          className={`relative w-full flex items-center justify-center h-[50px] rounded-[50px] gap-[10px] text-[16px] font-medium transition-all duration-300 ${formData.agree && !isLoading
+            ? "bg-white text-[#003B63] cursor-pointer hover:bg-[#F2F2F2] shadow-lg active:scale-[0.98]"
             : "bg-[#F2F2F2] text-[#828282] cursor-not-allowed"
             }`}
         >
           {isLoading ? (
-            <span>Submitting...</span>
+            <div className="flex items-center justify-center gap-3">
+              <svg className="animate-spin h-5 w-5 text-[#003B63]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <span>Submitting...</span>
+            </div>
           ) : (
             <>
               <Image src="https://yefranchisees.b-cdn.net/connect-new/Vector-1.png" alt="logo" unoptimized width={20} height={20} className="object-contain w-[20px] h-[20px]" />
@@ -403,6 +449,22 @@ export default function ContactForm() {
           )}
         </button>
       </form>
+
+      {showPopup && (
+        <SuccessPopup
+          onClose={() => setShowPopup(false)}
+        />
+      )}
+
+      {isLoading && <style jsx global>{`
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .animate-shimmer {
+          animation: shimmer 1.5s infinite linear;
+        }
+      `}</style>}
     </div>
   );
 }
