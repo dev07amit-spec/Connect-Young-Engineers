@@ -12,7 +12,6 @@ const programs = [
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989%201%20%281%29.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%286%29.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%287%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-15.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-green.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-1.png",
@@ -25,7 +24,6 @@ const programs = [
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(1).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/0E3A8931-1.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%287%29.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%288%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-16.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-red.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-2.png",
@@ -38,7 +36,6 @@ const programs = [
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(2).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_D6_9850-Poprawione-NR-1.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%282%29.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%289%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-17.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-yellow.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-3.png",
@@ -51,46 +48,42 @@ const programs = [
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(3).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5114-2.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-3-1.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2810%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-18.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/ellipse-desktop-blue.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-4.png",
     videoId: "video-4",
   },
   {
-    title: "ALGO PLAY",
+    title: "ALGOPLAY",
     description: "Foundational coding for primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2812%29.png",
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(4).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/70274%202.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-4-1.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2811%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-19.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%2813%29.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-5.png",
     videoId: "video-5",
   },
   {
-    title: "ROBO TOYS",
+    title: "ROBOTOYS",
     description: "Mechanical design and coding for upper primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2813%29.png",
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(5).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5869%202%20%281%29.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%288%29.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2812%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-20.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%2814%29.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-6.png",
     videoId: "video-6",
   },
   {
-    title: "ALGO C",
+    title: "ALGOC",
     description: "C/C++ coding and robotics for middle and high school students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2814%29.png",
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(6).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_D6_0695%201.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%285%29%20%281%29.png",
-    logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2813%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-21.png",
     bgShapeDesktop: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%2815%29.png",
     imageDesktop: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989-7.png",
@@ -129,14 +122,14 @@ export default function ProgramsSection() {
                   backgroundPosition: "center bottom",
                 }}
               >
-                <div className="relative w-[160px] h-[160px] rounded-full">
+                <div className="relative w-[160px] h-[160px] rounded-full flex items-center justify-center">
                   <Image
-                    src={item.logoDesktop}
+                    src={item.logo}
                     alt={item.title}
-                    width={160}
-                    height={160}
+                    width={140}
+                    height={140}
                     unoptimized
-                    className="object-contain ml-[1.1px] mt-[10px] w-[160px] h-[160px]"
+                    className="object-contain translate-x-[2.6px]"
                   />
                 </div>
               </div>
@@ -150,14 +143,14 @@ export default function ProgramsSection() {
                   backgroundPosition: "center bottom",
                 }}
               >
-                <div className="relative w-[50px] h-[50px] rounded-full">
+                <div className="relative w-[50px] h-[50px] rounded-full flex items-center justify-center">
                   <Image
                     src={item.logo}
                     alt={item.title}
-                    width={48}
-                    height={48}
+                    width={50}
+                    height={50}
                     unoptimized
-                    className="object-contain ml-[1.1px] mt-[10px] w-[48px] h-[48px]"
+                    className="object-contain translate-x-[0.5px] mt-2"
                   />
                 </div>
               </div>
@@ -192,7 +185,7 @@ export default function ProgramsSection() {
                     })
                   );
                 }}
-                className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden"
+                className="mt-0 flex justify-center w-[95%] bg-[#0097DC] text-white text-sm font-bold px-4 py-2 rounded-full items-center cursor-pointer gap-2 shadow-md relative z-10 md:hidden watch-btn"
               >
                 <Image
                   src="https://yefranchisees.b-cdn.net/connect-new/play_circle.png"
