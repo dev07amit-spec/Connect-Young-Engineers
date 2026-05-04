@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { submitContactForm } from "@/lib/formSubmission";
 import { countryCodes } from "@/lib/countryCodes";
 
-const SuccessPopup = ({ onClose }: { onClose: () => void }) => {
+const SuccessPopup = ({ onClose, redirectUrl }: { onClose: () => void; redirectUrl?: string }) => {
   return (
     <div className="fixed inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center p-4 z-[10000]">
       <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-sm text-center animate-in fade-in zoom-in duration-300">
@@ -37,9 +37,10 @@ const SuccessPopup = ({ onClose }: { onClose: () => void }) => {
           <button
             className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-150 cursor-pointer"
             onClick={() => {
-              if(typeof window !== 'undefined'){
-                window.open('https://www.youngengineers.org', '_blank')}}
+              if (typeof window !== 'undefined') {
+                window.open(redirectUrl || 'https://www.youngengineers.org', '_blank')
               }
+            }}
           >
             <span>Find out More</span>
           </button>
@@ -74,6 +75,7 @@ export default function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState<string | undefined>(undefined);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -217,7 +219,11 @@ export default function ContactForm() {
         utmSource: utmSource || "",
       };
 
-      await submitContactForm(payload);
+      const result = await submitContactForm(payload);
+
+      if (result && result.redirectUrl) {
+        setRedirectUrl(result.redirectUrl);
+      }
 
       setSuccess(true);
       setShowPopup(true);
@@ -450,11 +456,7 @@ export default function ContactForm() {
         </button>
       </form>
 
-      {showPopup && (
-        <SuccessPopup
-          onClose={() => setShowPopup(false)}
-        />
-      )}
+      {showPopup && <SuccessPopup onClose={() => setShowPopup(false)} redirectUrl={redirectUrl} />}
 
       {isLoading && <style jsx global>{`
         @keyframes shimmer {

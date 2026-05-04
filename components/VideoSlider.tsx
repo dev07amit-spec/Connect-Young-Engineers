@@ -5,58 +5,58 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation"
 
 const videos = [
-  { 
-    id: 1, 
-    title: 'Bricks Challenge', 
+  {
+    id: 1,
+    title: 'Bricks Challenge',
     thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png',
-    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Young%20Engineers%20(16-9%20Aspect%20Ratio)_1.mp4', 
+    videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Young%20Engineers%20(16-9%20Aspect%20Ratio)_1.mp4',
     videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/CUT%20(9x16%20instagram)%20revised_1.mp4'
   },
 
-  { 
-    id: 2, 
-    title: 'Galileo Technic', 
-    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
+  {
+    id: 2,
+    title: 'Galileo Technic',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg',
     videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/1920x1080%20(16x9)_1.mp4',
     videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/1080x1920%20(9x16)_1.mp4'
   },
 
-  { 
-    id: 3, 
-    title: 'Big Builders', 
-    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-033.png', 
+  {
+    id: 3,
+    title: 'Big Builders',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-033.png',
     videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Big%20Builders%20(1920x1080)_1.mp4',
-    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/Big%20Builders%20(1080x1920)_1.mp4' 
+    videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/Big%20Builders%20(1080x1920)_1.mp4'
   },
 
-  { 
-    id: 4, 
-    title: 'Smartivo', 
-    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img02.png', 
+  {
+    id: 4,
+    title: 'Smartivo',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img02.png',
     videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/SV%20-%20Tangible%20%26%20Screen%20(2)_1%20(1).mp4',
     videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/SV%20Vertical%20-%20Screen%20%26%20Tanbile%20Coding_1.mp4'
   },
-  
-  { 
-    id: 5, 
-    title: 'Algo Play', 
-    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png', 
+
+  {
+    id: 5,
+    title: 'AlgoPlay',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-01.png',
     videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/AP%20RT%20(1920x1080)_1.mp4',
     videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/AP%20RT%20(1080x1920)_1.mp4'
   },
 
-  { 
-    id: 6, 
-    title: 'Robo Toys', 
-    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
+  {
+    id: 6,
+    title: 'RoboToys',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg',
     videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/AP%20RT%20(1920x1080)_1.mp4',
     videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/AP%20RT%20(1080x1920)_1.mp4'
   },
 
-  { 
-    id: 7, 
-    title: 'AlgoC', 
-    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg', 
+  {
+    id: 7,
+    title: 'AlgoC',
+    thumbnail: 'https://yefranchisees.b-cdn.net/connect-new/video-thumbnails/img-02.jpg',
     videoUrl: 'https://yefranchisees.b-cdn.net/connect-new/desktop-videos/Screen%202%20-%2016x9_1.mp4',
     videoUrlMobile: 'https://yefranchisees.b-cdn.net/connect-new/mobile-videos/Screen%202%20-%209x16_1.mp4'
   },
@@ -154,40 +154,40 @@ export default function VideoSlider({ selectedVideoId }: { selectedVideoId: stri
   };
 
   useEffect(() => {
-  if (!selectedVideoId) return;
-
- const index = videos.findIndex(
-  (v) => `video-${v.id}` === selectedVideoId
-);
-
-  if (index !== -1) {
-    const newIndex = index + 1;
-
-    setActive(newIndex);
-    setPlayingIndex(newIndex);
-  }
-}, [selectedVideoId]);
-
-
-useEffect(() => {
-  const handler = (e: any) => {
-    const id = e.detail;
+    if (!selectedVideoId) return;
 
     const index = videos.findIndex(
-      (v) => `video-${v.id}` === id
+      (v) => `video-${v.id}` === selectedVideoId
     );
 
     if (index !== -1) {
       const newIndex = index + 1;
+
       setActive(newIndex);
       setPlayingIndex(newIndex);
     }
-  };
+  }, [selectedVideoId]);
 
-  window.addEventListener("selectVideo", handler);
 
-  return () => window.removeEventListener("selectVideo", handler);
-}, []);
+  useEffect(() => {
+    const handler = (e: any) => {
+      const id = e.detail;
+
+      const index = videos.findIndex(
+        (v) => `video-${v.id}` === id
+      );
+
+      if (index !== -1) {
+        const newIndex = index + 1;
+        setActive(newIndex);
+        setPlayingIndex(newIndex);
+      }
+    };
+
+    window.addEventListener("selectVideo", handler);
+
+    return () => window.removeEventListener("selectVideo", handler);
+  }, []);
 
 
   return (
@@ -203,7 +203,7 @@ useEffect(() => {
         <div
           className="flex gap-5 items-center"
           style={{
-           transform: isDesktop
+            transform: isDesktop
               ? `translateX(-${active * (slideWidth + 20)}px)`
               : `translateX(calc(50% - ${(active * (slideWidth + 20)) + (slideWidth / 2)}px))`,
           }}
@@ -215,11 +215,10 @@ useEffect(() => {
               <div
                 key={index}
                 style={{ width: `${slideWidth}px` }}
-                className={`flex-shrink-0 transition-all duration-300 v-slide ${
-                  isPlaying
+                className={`flex-shrink-0 transition-all duration-300 v-slide ${isPlaying
                     ? 'active-slide scale-100 z-20 opacity-100'
                     : 'scale-100 opacity-100'
-                }`}
+                  }`}
                 onClick={() => {
                   setPlayingIndex(index);
                   if (!isDesktop) setActive(index);
@@ -229,17 +228,17 @@ useEffect(() => {
 
                   {isPlaying ? (
                     <video
-                     id={`video-${video.id}`} // ✅ unique id
-                     src={isDesktop ? video.videoUrl : video.videoUrlMobile}
-                     autoPlay
-                     muted
-                     loop
-                     playsInline
-                     className="rounded-2xl w-full h-[320px] md:h-[350px] object-cover xl:rounded-[52px]"
-                   />
-                   ) : (
+                      id={`video-${video.id}`} // ✅ unique id
+                      src={isDesktop ? video.videoUrl : video.videoUrlMobile}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="rounded-2xl w-full h-[320px] md:h-[350px] object-cover xl:rounded-[52px]"
+                    />
+                  ) : (
                     <>
-                    <div className='overlay'></div>
+                      <div className='overlay'></div>
                       <img
                         src={video.thumbnail}
                         className="rounded-2xl w-full h-[280px] md:h-[350px] object-cover xl:rounded-[52px]"
@@ -278,11 +277,10 @@ useEffect(() => {
             <button
               key={index}
               onClick={() => setActive(index + 1)}
-              className={`w-2.5 h-2.5 rounded-full  dots cursor-pointer ${
-                current === index
+              className={`w-2.5 h-2.5 rounded-full  dots cursor-pointer ${current === index
                   ? 'bg-[linear-gradient(45deg,#013A5E,#016CAC)] scale-100'
                   : 'bg-gray-300'
-              }`}
+                }`}
             />
           );
         })}

@@ -55,14 +55,14 @@ export default function Footer({ territoryName }: FooterProps) {
           className="object-contain w-[60px] h-[60px] hidden md:block"
         />
 
-        <p className="text-[14px] text-white xl:text-[28px]">Young Engineers {territoryName || "[territory name]"}</p>
+        <p className="text-[14px] text-white xl:text-[28px]">Go To Young Engineers {territoryName || "[territory name]"}</p>
       </div>
       <hr className="relative w-[274px] border-t border-[#fff] mt-3 mb-3 xl:w-[700px] xl:mt-8 xl:mb-8" />
 
       {/* Social Icons */}
       <div className="relative flex justify-center gap-6 mb-4">
         <div className="relative w-10 h-10 flex items-center justify-center">
-          <a href="#">
+          <a href="https://www.facebook.com/youngengineersfranchise" target="_blank" rel="noopener noreferrer">
             <Image
               src="https://yefranchisees.b-cdn.net/connect-new/Social%20Icons.webp"
               alt="logo"
@@ -75,7 +75,7 @@ export default function Footer({ territoryName }: FooterProps) {
         </div>
 
         <div className="w-10 h-10 rounded-full flex items-center justify-center">
-          <a href="#">
+          <a href="https://www.instagram.com/youngengineersofficial/" target="_blank" rel="noopener noreferrer">
             <Image
               src="https://yefranchisees.b-cdn.net/connect-new/Social%20Icons%20(1).webp"
               alt="logo"
