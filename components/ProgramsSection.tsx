@@ -9,7 +9,7 @@ const programs = [
     title: "BRICKS CHALLENGE",
     description: "Playful introduction to mechanics for early primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%288%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989%201%20%281%29.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%286%29.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%287%29.png",
@@ -22,7 +22,7 @@ const programs = [
     title: "GALILEO TECHNIC",
     description: "Advanced, structured mechanics for upper primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%289%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%281%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(1).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/0E3A8931-1.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%287%29.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%288%29.png",
@@ -35,7 +35,7 @@ const programs = [
     title: "BIG BUILDERS",
     description: "Hands-on building program introducing science and nature to preschool children",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2810%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%282%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(2).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_D6_9850-Poprawione-NR-1.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%282%29.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%289%29.png",
@@ -48,7 +48,7 @@ const programs = [
     title: "SMARTIVO",
     description: "Coding through play for kindergarteners",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2811%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%283%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(3).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5114-2.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-3-1.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2810%29.png",
@@ -61,7 +61,7 @@ const programs = [
     title: "ALGO PLAY",
     description: "Foundational coding for primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2812%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%284%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(4).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/70274%202.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-4-1.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2811%29.png",
@@ -74,7 +74,7 @@ const programs = [
     title: "ROBO TOYS",
     description: "Mechanical design and coding for upper primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2813%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%285%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(5).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5869%202%20%281%29.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%288%29.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2812%29.png",
@@ -87,7 +87,7 @@ const programs = [
     title: "ALGO C",
     description: "C/C++ coding and robotics for middle and high school students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2814%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%286%29.png",
+    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(6).svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_D6_0695%201.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%285%29%20%281%29.png",
     logoDesktop: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%2813%29.png",
@@ -105,7 +105,7 @@ export default function ProgramsSection() {
   const createId = (title: string) => title.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <div className="w-full max-w-[400px] mt-10 md:max-w-[100%]">
+    <div className="w-full max-w-[400px] mt-10 md:max-w-[100%] mx-auto">
       {programs.map((item, index) => (
         <div
           id={createId(item.title)}
