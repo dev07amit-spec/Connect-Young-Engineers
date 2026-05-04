@@ -58,7 +58,7 @@ const programs = [
     videoId: "video-4",
   },
   {
-    title: "ALGOPLAY",
+    title: "ALGO PLAY",
     description: "Foundational coding for primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2812%29.png",
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%284%29.png",
@@ -71,7 +71,7 @@ const programs = [
     videoId: "video-5",
   },
   {
-    title: "ROBOTOYS",
+    title: "ROBO TOYS",
     description: "Mechanical design and coding for upper primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2813%29.png",
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%285%29.png",
@@ -84,7 +84,7 @@ const programs = [
     videoId: "video-6",
   },
   {
-    title: "ALGOC",
+    title: "ALGO C",
     description: "C/C++ coding and robotics for middle and high school students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2814%29.png",
     logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20%286%29.png",
