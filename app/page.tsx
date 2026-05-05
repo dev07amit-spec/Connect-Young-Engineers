@@ -112,7 +112,10 @@ export default async function ConnectPage({
       </section>
 
       {/*====================Footer=================== */}
-      <Footer territoryName={campaignData.declared_territory_name} />
+      <Footer 
+        territoryName={campaignData.declared_territory_name} 
+        redirectUrl={campaignData.redirectUrl || campaignData.website}
+      />
     </main>
   );
 }
