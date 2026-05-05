@@ -9,7 +9,7 @@ const programs = [
     title: "BRICKS CHALLENGE",
     description: "Playful introduction to mechanics for early primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%288%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365.svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_bricks_chalenge.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/IMG_1989%201%20%281%29.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%286%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-15.png",
@@ -21,7 +21,7 @@ const programs = [
     title: "GALILEO TECHNIC",
     description: "Advanced, structured mechanics for upper primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%289%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(1).svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_galileo_technic.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/0E3A8931-1.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%287%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-16.png",
@@ -33,7 +33,7 @@ const programs = [
     title: "BIG BUILDERS",
     description: "Hands-on building program introducing science and nature to preschool children",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2810%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(2).svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_big_builders.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_D6_9850-Poprawione-NR-1.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%282%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-17.png",
@@ -45,7 +45,7 @@ const programs = [
     title: "SMARTIVO",
     description: "Coding through play for kindergarteners",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2811%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(3).svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_smartivo.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5114-2.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-3-1.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-18.png",
@@ -57,7 +57,7 @@ const programs = [
     title: "ALGOPLAY",
     description: "Foundational coding for primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2812%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(4).svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_algo_play.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/70274%202.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse-637-4-1.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-19.png",
@@ -69,7 +69,7 @@ const programs = [
     title: "ROBOTOYS",
     description: "Mechanical design and coding for upper primary students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2813%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(5).svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_robo_toys.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_DSC5869%202%20%281%29.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%288%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-20.png",
@@ -81,7 +81,7 @@ const programs = [
     title: "ALGOC",
     description: "C/C++ coding and robotics for middle and high school students",
     ribbon: "https://yefranchisees.b-cdn.net/connect-new/bg%20%2814%29.png",
-    logo: "https://yefranchisees.b-cdn.net/connect-new/Frame%20291365%20(6).svg",
+    logo: "https://yefranchisees.b-cdn.net/frontend/program-logo/logo_algo_c.svg",
     image: "https://yefranchisees.b-cdn.net/connect-new/_D6_0695%201.png",
     bgShape: "https://yefranchisees.b-cdn.net/connect-new/Ellipse%20637%20%285%29%20%281%29.png",
     ribbonDesktop: "https://yefranchisees.b-cdn.net/connect-new/bg-21.png",
@@ -122,14 +122,14 @@ export default function ProgramsSection() {
                   backgroundPosition: "center bottom",
                 }}
               >
-                <div className="relative w-[160px] h-[160px] rounded-full flex items-center justify-center">
+                <div className="relative w-[124px] h-[124px] mx-auto bg-white mt-5 rounded-full flex items-center justify-center">
                   <Image
                     src={item.logo}
                     alt={item.title}
-                    width={140}
-                    height={140}
+                    width={124}
+                    height={124}
                     unoptimized
-                    className="object-contain translate-x-[2.6px]"
+                    className="object-contain "
                   />
                 </div>
               </div>
@@ -143,14 +143,14 @@ export default function ProgramsSection() {
                   backgroundPosition: "center bottom",
                 }}
               >
-                <div className="relative w-[50px] h-[50px] rounded-full flex items-center justify-center">
+                <div className="relative w-[45px] h-[45px] bg-white mx-auto mt-3 rounded-full flex items-center justify-center">
                   <Image
                     src={item.logo}
                     alt={item.title}
-                    width={50}
-                    height={50}
+                    width={45}
+                    height={45}
                     unoptimized
-                    className="object-contain translate-x-[0.5px] mt-2"
+                    className="object-contain"
                   />
                 </div>
               </div>
