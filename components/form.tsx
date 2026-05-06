@@ -59,7 +59,7 @@ interface ContactFormProps {
 
 export default function ContactForm({ pixelId, whatsappPrefilledMessage }: ContactFormProps) {
   const searchParams = useSearchParams();
-  const utmSource = searchParams.get("utmSource");
+  const utmSource = searchParams.get("utmSource") || searchParams.get("utmsource");
   const { trackLead, getFbcFbp } = useFacebookPixel();
 
   const [formData, setFormData] = useState({
