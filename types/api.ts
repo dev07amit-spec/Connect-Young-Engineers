@@ -4,6 +4,8 @@ export interface CampaignDetails {
   declared_territory_name: string;
   redirectUrl?: string;
   website?: string;
+  fbPixelId?: string;
+  whatsappPrefilledMessage?: string;
 }
 
 export interface ApiErrorResponse {

@@ -5,8 +5,14 @@ export interface FormSubmitPayload {
     lastName: string | null;
     email: string;
     phone: string;
-    source: string;
     utmSource: string | null;
+    pixelId?: string;
+    fbc?: string | null;
+    fbp?: string | null;
+    eventSourceUrl?: string;
+    eventID?: string;
+    whatsappPrefilledMessage?: string;
+    testEventCode?: string | null;
 }
 
 export const submitContactForm = async (payload: FormSubmitPayload) => {

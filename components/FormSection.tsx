@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Form from "./form"; // Import the client-side form component here
 
-export default function FormSection() {
+export default function FormSection({ pixelId, whatsappPrefilledMessage }: { pixelId?: string; whatsappPrefilledMessage?: string }) {
   return (
     <section className="relative w-full flex flex-col items-center justify-center min-h-[700px] bg-white">
       <div className="absolute inset-0 z-0 top-0">
@@ -22,7 +22,7 @@ export default function FormSection() {
           </div>
         </div>
       </div>
-        <Form />
+        <Form pixelId={pixelId} whatsappPrefilledMessage={whatsappPrefilledMessage} />
         <div className="hidden md:block">
           {/* ✅ FIX 4: Changed h-[500px] to h-auto to fix the aspect ratio warning */}
           <Image
