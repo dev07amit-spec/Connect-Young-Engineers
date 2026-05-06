@@ -20,7 +20,8 @@ export default async function ConnectPage({
 }) {
   // 3. Await the params before extracting the ID
   const resolvedParams = await searchParams;
-  const utmSource = typeof resolvedParams?.utmSource === "string" ? resolvedParams.utmSource : null;
+  const utmSource = (typeof resolvedParams?.utmSource === "string" ? resolvedParams.utmSource : null) || 
+                    (typeof resolvedParams?.utmsource === "string" ? resolvedParams.utmsource : null);
 
   if (!utmSource) {
     return <InvalidFranchisee />;
