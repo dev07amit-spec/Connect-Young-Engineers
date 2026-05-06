@@ -85,7 +85,10 @@ export default async function ConnectPage({
 
       {/*====================Form============================*/}
       <Suspense fallback={<div className="min-h-[500px] flex items-center justify-center text-white">Loading form...</div>}>
-        <FormSection />
+        <FormSection 
+          pixelId={process.env.NEXT_PUBLIC_FB_PIXEL_CODE} 
+          whatsappPrefilledMessage={campaignData.whatsappPrefilledMessage} 
+        />
       </Suspense>
 
       {/*====================programs============================*/}

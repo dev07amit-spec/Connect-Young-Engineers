@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { submitContactForm } from "@/lib/formSubmission";
 import { countryCodes } from "@/lib/countryCodes";
+import { useFacebookPixel } from "@/hooks/useFacebookPixel";
+import FacebookPixel from "./FacebookPixel";
 
 const SuccessPopup = ({ onClose, redirectUrl }: { onClose: () => void; redirectUrl?: string }) => {
   return (
@@ -50,9 +52,15 @@ const SuccessPopup = ({ onClose, redirectUrl }: { onClose: () => void; redirectU
   );
 };
 
-export default function ContactForm() {
+interface ContactFormProps {
+  pixelId?: string;
+  whatsappPrefilledMessage?: string;
+}
+
+export default function ContactForm({ pixelId, whatsappPrefilledMessage }: ContactFormProps) {
   const searchParams = useSearchParams();
   const utmSource = searchParams.get("utmSource");
+  const { trackLead, getFbcFbp } = useFacebookPixel();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -210,16 +218,29 @@ export default function ContactForm() {
     setIsLoading(true);
 
     try {
+      const { fbc, fbp } = getFbcFbp();
+      const testEventCode = searchParams.get("test_event_code");
+      const eventId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
       const payload = {
         firstName: formData.firstName,
         lastName: formData.lastName || null,
         email: formData.email,
         phone: `${formData.countryCode}${formData.phone}`,
-        source: "Connect App",
-        utmSource: utmSource || "",
+        utmSource: utmSource || "direct",
+        pixelId: pixelId,
+        fbc: fbc || null,
+        fbp: fbp || null,
+        eventSourceUrl: typeof window !== "undefined" ? window.location.href : "",
+        eventID: eventId,
+        whatsappPrefilledMessage: whatsappPrefilledMessage || "Hi",
+        ...(testEventCode && { testEventCode }),
       };
 
       const result = await submitContactForm(payload);
+      
+      // Track lead with facebook
+      trackLead(payload);
 
       if (result && result.redirectUrl) {
         setRedirectUrl(result.redirectUrl);
@@ -244,6 +265,7 @@ export default function ContactForm() {
 
   return (
     <div className="flex justify-center items-center flex-col w-[300px] mx-auto mt-[10px] max-[324px]:w-[280px] md:w-[400px] xl:w-[640px]">
+      {pixelId && <FacebookPixel pixelId={pixelId} />}
       <h2 className="text-[28px] font-bold text-[#fff] text-center mb-4 md:text-[32px] xl:text-[52px] uppercase">
         Interested in <span className="block">Classes Near You?</span>
       </h2>
